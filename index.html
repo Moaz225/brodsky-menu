@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRODSKY. - Меню</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+      .hero {
+    background: linear-gradient(135deg, #ff7700, #e56a00);
+    padding: 60px 0;
+    text-align: center;
+}
+
+.logo {
+    font-size: 3.5rem;
+    color: white;
+    letter-spacing: 6px;
+    font-weight: 700;
+    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.logo-divider {
+    width: 100px;
+    height: 4px;
+    margin: 20px auto 0;
+    background: linear-gradient(to right, transparent, #ffffff, transparent);
+    border-radius: 2px;
+}
+
+        :root {
+            --primary: #ff7700;
+            --primary-light: #ffa552;
+            --primary-dark: #e56a00;
+            --light: #ffffff;
+            --dark: #333333;
+            --gray: #f5f5f5;
+            --border: #e0e0e0;
+            --text: #444444;
+            --section-bg: #fffaf5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)),
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="%23ff7700" stroke-width="0.5" stroke-opacity="0.1"/></svg>');
+            background-size: 30px 30px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(to right, var(--primary), var(--primary-dark));
+            color: var(--light);
+            padding: 25px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 Q50,20 100,0 L100,100 Q50,80 0,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+
+        .logo {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            letter-spacing: 2px;
+        }
+
+        /* Navigation */
+        .categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            background-color: var(--light);
+            margin: 30px 0;
+            position: sticky;
+            top: 0;
+            z-index: 90;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            border-radius: 10px;
+            padding: 10px;
+            max-width: 100%;
+            margin: 30px auto;
+        }
+
+        .category-btn {
+            padding: 12px 20px;
+            font-size: 1rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--dark);
+            transition: all 0.3s ease;
+            position: relative;
+            font-weight: 500;
+            border-radius: 50px;
+            margin: 5px;
+            white-space: nowrap;
+        }
+
+        .category-btn:hover, .category-btn.active {
+            color: var(--primary);
+            background-color: rgba(255, 119, 0, 0.1);
+        }
+
+        .category-btn.active {
+            font-weight: 600;
+            background-color: var(--primary);
+            color: var(--light);
+        }
+
+        /* Menu Sections */
+        .menu-section {
+            background-color: var(--section-bg);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border: 1px solid rgba(255, 119, 0, 0.1);
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 0 0 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            display: inline-block;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+            background-color: var(--section-bg);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--primary), transparent);
+            z-index: 1;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .menu-card {
+            background-color: var(--light);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 119, 0, 0.15);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(255, 119, 0, 0.15);
+        }
+
+        .card-header {
+            background: linear-gradient(to right, var(--primary), var(--primary-dark));
+            color: var(--light);
+            padding: 18px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .item-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .item-price {
+            background-color: var(--light);
+            color: var(--primary);
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+
+        .card-body {
+            padding: 25px;
+            flex-grow: 1;
+        }
+
+        .item-description {
+            margin-bottom: 15px;
+            color: #555;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .ru-name {
+            font-weight: 500;
+            color: #666;
+        }
+
+        .item-details {
+            display: flex;
+            justify-content: space-between;
+            color: #777;
+            font-size: 0.9rem;
+            border-top: 1px dashed var(--border);
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+
+        .item-icon {
+            color: var(--primary);
+            margin-right: 8px;
+        }
+
+        /* Special Badges */
+        .badge {
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            background-color: var(--primary);
+            color: white;
+            padding: 8px 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transform: rotate(45deg);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+            z-index: 2;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, #222, #333);
+            color: var(--light);
+            padding: 60px 0 20px;
+            margin-top: 70px;
+            position: relative;
+        }
+
+        .footer-overlay {
+            position: absolute;
+            top: -60px;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 Q50,100 100,0 L100,100 Q50,100 0,100 Z" fill="%23333"/></svg>');
+            background-size: 100% 100%;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 300px;
+            padding: 0 20px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+
+        .contact-info p {
+            margin: 12px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--primary);
+            width: 20px;
+            text-align: center;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            color: var(--light);
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 20px;
+            color: #aaa;
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .menu-section {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .menu-card {
+            animation: fadeIn 0.5s ease-out;
+            animation-fill-mode: both;
+        }
+
+        /* Delay animations for each card */
+        .menu-card:nth-child(1) { animation-delay: 0.1s; }
+        .menu-card:nth-child(2) { animation-delay: 0.2s; }
+        .menu-card:nth-child(3) { animation-delay: 0.3s; }
+        .menu-card:nth-child(4) { animation-delay: 0.4s; }
+        .menu-card:nth-child(5) { animation-delay: 0.5s; }
+        .menu-card:nth-child(6) { animation-delay: 0.6s; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+
+            .categories {
+                flex-wrap: wrap;
+                top: 0;
+                border-radius: 15px;
+            }
+
+            .category-btn {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+                margin: 3px;
+            }
+
+            .logo {
+                font-size: 2.8rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .category-btn {
+                padding: 8px 12px;
+                font-size: 0.85rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.6rem;
+            }
+
+            .logo {
+                font-size: 2.4rem;
+            }
+        }
+
+        /* Search Bar */
+.search-container {
+    max-width: 600px;
+    margin: 30px auto;
+    position: relative;
+    border-radius: 50px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border: 2px solid var(--primary);
+}
+
+.search-container input {
+    flex: 1;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    outline: none;
+    background: transparent;
+}
+
+.search-container i {
+    color: var(--primary);
+    font-size: 1.2rem;
+    margin-right: 18px;
+}
+
+
+        /* Cart Button */
+        .cart-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 100;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cart-button:hover {
+            transform: scale(1.1);
+            background: var(--primary-dark);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: white;
+            color: var(--primary);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            font-size: 0.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        /* Notice */
+        .price-update-notice {
+            background-color: #fff8e6;
+            border-left: 4px solid var(--primary);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            max-width: 800px;
+            margin: 20px auto;
+            display: none; /* Hidden by default */
+        }
+
+        .logo-divider {
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--primary), transparent);
+            width: 80%;
+            max-width: 500px;
+            margin: 0 auto;
+            margin-top: 15px;
+        }
+
+        /* Meals section styles */
+        .meals-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .meal-category {
+            background-color: var(--light);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .meal-category-title {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+        }
+
+        .meal-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .meal-item {
+            background-color: rgba(255, 119, 0, 0.05);
+            border-radius: 10px;
+            padding: 15px;
+            border: 1px solid rgba(255, 119, 0, 0.1);
+        }
+
+        .meal-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .meal-price {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .meal-description {
+            color: var(--text);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .meal-subtitle {
+            font-size: 1.8rem;
+            color: var(--primary);
+            text-align: center;
+            margin: 40px 0 20px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .meal-subtitle::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--primary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+<header class="hero">
+    <h1 class="logo">BRODSKY.</h1>
+    <div class="logo-divider"></div>
+</header>
+
+
+    <!-- Navigation -->
+    <div class="container">
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Поиск напитков...">
+            <i class="fas fa-search"></i>
+        </div>
+
+        <div class="categories">
+            <button class="category-btn active" data-category="coffee">Кофе</button>
+            <button class="category-btn" data-category="seasonal">Сезонные напитки</button>
+            <button class="category-btn" data-category="tea">Чай</button>
+            <button class="category-btn" data-category="cocoa">Какао</button>
+            <button class="category-btn" data-category="fresh">Свежие соки</button>
+            <button class="category-btn" data-category="meals">Блюда</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Coffee Section -->
+        <section id="coffee" class="menu-section">
+            <div class="section-title">
+                <h2>Кофе</h2>
+            </div>
+
+            <div class="menu-grid">
+                <!-- Black Coffee -->
+                <div class="menu-card">
+                    <div class="card-header">
+                        <span class="item-name">Черный кофе</span>
+                        <span class="item-price">200 ₽</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="item-description">
+                            <span class="ru-name">Эспрессо — 40 мл</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <div class="card-header">
+                        <span class="item-name">Американо</span>
+                        <span class="item-price">200 ₽</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="item-description">
+                            <span class="ru-name">Американо — 200 мл</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <div class="card-header">
+                        <span class="item-name">Фильтр-кофе</span>
+                        <span class="item-price">250 ₽</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="item-description">
+                            <span class="ru-name">Фильтр-кофе — 250 мл</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <div class="card-header">
+                        <span class="item-name">Харио V60</span>
+                        <span class="item-price">280 ₽</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="item-description">
+                            <span class="ru-name">Харио V60 — 250 мл</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coffee with Milk -->
+                <div class="menu-card">
+                    <div class="card-header">
+                        <span class="item-name">Капучино</span>
+                        <span class="item-price">230/260 ₽</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="item-description">
+                            <span class="ru-name">Капучино — 200/300 мл</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <div class="card-header">
+                        <span class="item-name">Латте</span>
+                        <span class="item-price">260 ₽</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="item-description">
+                            <span class="ru-name">Латте — 300 мл</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <div class="card-header">
+                        <span class="item-name">Флэт уайт</span>
+                        <span class="item-price">260 ₽</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="item-description">
+                            <span class="ru-name">Флэт уайт — 200 мл</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <div class="card-header">
+                        <span class="item-name">Раф</span>
+                        <span class="item-price">300 ₽</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="item-description">
+                            <span class="ru-name">Раф — 300 мл</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <div class="card-header">
+                        <span class="item-name">Маття</span>
+                        <span class="item-price">300 ₽</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="item-description">
+                            <span class="ru-name">Маття — 300 мл</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seasonal Drinks Section -->
+        <section id="seasonal" class="menu-section" style="display:none;">
+            <div class="section-title">
+                <h2>Сезонные напитки</h2>
+            </div>
+
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <div class="card-header">
+                        <span class="item-name">Айс капучино</span>
+                        <span class="item-price">260 ₽</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="item-description">
+                            <span class="ru-name">Айс капучино — 300 мл</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <div class="card-header">
+                        <span class="item-name">Айс латте</span>
+                        <span class="item-price">260 ₽</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="item-description">
+                            <span class="ru-name">Айс латте — 300 мл</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <div class="card-header">
+                        <span class="item-name">Айс какао</span>
+                        <span class="item-price">300 ₽</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="item-description">
+                            <span class="ru-name">Айс какао — 300 мл</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <div class="card-header">
+                        <span class="item-name">Айс маття</span>
+                        <span class="item-price">300 ₽</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="item-description">
+                            <span class="ru-name">Айс маття — 300 мл</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <div class="card-header">
+                        <span class="item-name">Айс ти</span>
+                        <span class="item-price">260 ₽</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="item-description">
+                            <span class="ru-name">Айс ти — 300 мл</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <div class="card-header">
+                        <span class="item-name">Эспрессо-тоник</span>
+                        <span class="item-price">350 ₽</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="item-description">
+                            <span class="ru-name">Эспрессо-тоник — 300 мл</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <div class="card-header">
+                        <span class="item-name">Бамбл</span>
+                        <span class="item-price">350 ₽</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="item-description">
+                            <span class="ru-name">Бамбл — 300 мл</span>
+                        </div>
+                        <p>(Вкусы: апельсин – гранат – вишня)</p>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <div class="card-header">
+                        <span class="item-name">Тропическая матча</span>
+                        <span class="item-price">330 ₽</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="item-description">
+                            <span class="ru-name">Тропическая матча — 300 мл</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <div class="card-header">
+                        <span class="item-name">Кофейная содовая</span>
+                        <span class="item-price">300 ₽</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="item-description">
+                            <span class="ru-name">Кофейная содовая — 300 мл</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <div class="card-header">
+                        <span class="item-name">Лимонад</span>
+                        <span class="item-price">290 ₽</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="item-description">
+                            <span class="ru-name">Лимонад — 300 мл</span>
+                        </div>
+                        <p>(Вкусы: смородиновый – малина-базилик – облепиха-маракуйа)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tea Section -->
+        <section id="tea" class="menu-section" style="display:none;">
+            <div class="section-title">
+                <h2>Чай</h2>
+            </div>
+
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <div class="card-header">
+                        <span class="item-name">Черный чай</span>
+                        <span class="item-price">300 ₽</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="item-description">
+                            <span class="ru-name">Черный — 500 мл</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <div class="card-header">
+                        <span class="item-name">Зеленый чай</span>
+                        <span class="item-price">300 ₽</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="item-description">
+                            <span class="ru-name">Зеленый — 500 мл</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <div class="card-header">
+                        <span class="item-name">Улун</span>
+                        <span class="item-price">300 ₽</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="item-description">
+                            <span class="ru-name">Улун — 500 мл</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <div class="card-header">
+                        <span class="item-name">Иван-чай</span>
+                        <span class="item-price">300 ₽</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="item-description">
+                            <span class="ru-name">Иван-чай — 500 мл</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <div class="card-header">
+                        <span class="item-name">Гречишный чай</span>
+                        <span class="item-price">300 ₽</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="item-description">
+                            <span class="ru-name">Гречишный — 500 мл</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Special Tea -->
+                <div class="menu-card">
+                    <div class="card-header">
+                        <span class="item-name">Дянь Хун</span>
+                        <span class="item-price">350 ₽</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="item-description">
+                            <span class="ru-name">Дянь Хун — 300 мл</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <div class="card-header">
+                        <span class="item-name">Би Ло Чунь</span>
+                        <span class="item-price">350 ₽</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="item-description">
+                            <span class="ru-name">Би Ло Чунь — 300 мл</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <div class="card-header">
+                        <span class="item-name">Да Хун Пао</span>
+                        <span class="item-price">350 ₽</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="item-description">
+                            <span class="ru-name">Да Хун Пао — 300 мл</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cocoa Section -->
+        <section id="cocoa" class="menu-section" style="display:none;">
+            <div class="section-title">
+                <h2>Какао</h2>
+            </div>
+
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <div class="card-header">
+                        <span class="item-name">Какао с зефиром</span>
+                        <span class="item-price">270 ₽</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="item-description">
+                            <span class="ru-name">С зефирками — 200 мл</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <div class="card-header">
+                        <span class="item-name">Специальное какао</span>
+                        <span class="item-price">300 ₽</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="item-description">
+                            <span class="ru-name">Specialty «UNICAVA» — 200 мл</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <div class="card-header">
+                        <span class="item-name">Какао с апельсином</span>
+                        <span class="item-price">300 ₽</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="item-description">
+                            <span class="ru-name">Какао с апельсином — 300 мл</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <div class="card-header">
+                        <span class="item-name">Какао с грейпфрутом</span>
+                        <span class="item-price">300 ₽</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="item-description">
+                            <span class="ru-name">Какао с грейпфрутом — 300 мл</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fresh Section -->
+        <section id="fresh" class="menu-section" style="display:none;">
+            <div class="section-title">
+                <h2>Свежие соки</h2>
+            </div>
+
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <div class="card-header">
+                        <span class="item-name">Апельсиновый сок</span>
+                        <span class="item-price">350 ₽</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="item-description">
+                            <span class="ru-name">Апельсиновый — 300 мл</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <div class="card-header">
+                        <span class="item-name">Грейпфрутовый сок</span>
+                        <span class="item-price">350 ₽</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="item-description">
+                            <span class="ru-name">Грейпфрутовый — 300 мл</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Meals Section -->
+        <section id="meals" class="menu-section" style="display:none;">
+            <div class="section-title">
+                <h2>Блюда</h2>
+            </div>
+
+            <div class="meals-grid">
+                <!-- Breakfast -->
+                <div class="meal-category">
+                    <div class="meal-category-title">🍳 Завтраки</div>
+                    <div class="meal-items">
+                        <div class="meal-item">
+                            <div class="meal-name">Рисовая каша<span class="meal-price">170 ₽</span></div>
+                        </div>
+                        <div class="meal-item">
+                            <div class="meal-name">Овсяная каша<span class="meal-price">170 ₽</span></div>
+                        </div>
+                        <div class="meal-item">
+                            <div class="meal-name">Гречневая с пармезаном<span class="meal-price">260 ₽</span></div>
+                        </div>
+                        <div class="meal-item">
+                            <div class="meal-name">Рисовая каша с манго<span class="meal-price">260 ₽</span></div>
+                            <div class="meal-description">Готовим на кокосовом молоке</div>
+                        </div>
+                        <div class="meal-item">
+                            <div class="meal-name">Сырники со сметаной<span class="meal-price">270 ₽</span></div>
+                            <div class="meal-description">Добавь варенье, сгущенку или соленую карамель +80₽</div>
+                        </div>
+                        <div class="meal-item">
+                            <div class="meal-name">Самый сытный завтрак<span class="meal-price">450 ₽</span></div>
+                            <div class="meal-description">Австрийская колбаска, бекон, картофель беби, яйцо всмятку, маринованные огурцы, соус трюфельный ранч, чиабатта, салат</div>
+                        </div>
+                        <div class="meal-item">
+                            <div class="meal-name">Английский завтрак<span class="meal-price">330 ₽</span></div>
+                            <div class="meal-description">Микс салата, овощи, глазунья, колбаска австрийская, фасоль в томатном соусе, чиабатта</div>
+                        </div>
+                        <div class="meal-item">
+                            <div class="meal-name">Завтрак конструктор<span class="meal-price">220 ₽</span></div>
+                            <div class="meal-description">Нежный скрембл, омлет, пашот или глазунья + микс салата и чиабатта</div>
+                        </div>
+                        <div class="meal-item">
+                            <div class="meal-name">Омлет четыре сыра<span class="meal-price">300 ₽</span></div>
+                            <div class="meal-description">Сыр чеддер, моцарелла, крем-сыр, пармезан, микс салата, овощи, чиабатта</div>
+                        </div>
+                        <div class="meal-item">
+                            <div class="meal-name">Напитки к завтраку<span class="meal-price">150 ₽</span></div>
+                            <div class="meal-description">Фильтр-кофе, Американо, Капучино, латте, Флэт уайт, Какао, Чай</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cottage Cheese and Cheesecakes -->
+                <div class="meal-category">
+                    <div class="meal-category-title">🧀 Творог и сырники</div>
+                    <div class="meal-items">
+                        <div class="meal-item">
+                            <div class="meal-name">Ленивые вареники<span class="meal-price">300 ₽</span></div>
+                            <div class="meal-description">Со сметаной и вареньем</div>
+                        </div>
+                        <div class="meal-item">
+                            <div class="meal-name">Творожная запеканка с мороженым<span class="meal-price">370 ₽</span></div>
+                            <div class="meal-description">Ягодный соус</div>
+                        </div>
+                        <div class="meal-item">
+                            <div class="meal-name">Оладьи из цукини с форелью<span class="meal-price">300 ₽</span></div>
+                            <div class="meal-description">Со сметанным соусом и зеленью</div>
+                        </div>
+                        <div class="meal-item">
+                            <div class="meal-name">Сырники со сметаной<span class="meal-price">270 ₽</span></div>
+                            <div class="meal-description">Добавь варенье, сгущенку или соленую карамель +80₽</div>
+                        </div>
+                        <div class="meal-item">
+                            <div class="meal-name">Сырники с манговым курдом и крем-сыром<span class="meal-price">300 ₽</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pancakes -->
+                <div class="meal-category">
+                    <div class="meal-category-title">🥞 Блины</div>
+                    <div class="meal-items">
+                        <div class="meal-item">
+                            <div class="meal-name">С курицей и грибами<span class="meal-price">300 ₽</span></div>
+                        </div>
+                        <div class="meal-item">
+                            <div class="meal-name">С форелью и авокадо-кремом<span class="meal-price">350 ₽</span></div>
+                        </div>
+                        <div class="meal-item">
+                            <div class="meal-name">С креветками в свит чили<span class="meal-price">250 ₽</span></div>
+                        </div>
+                        <div class="meal-item">
+                            <div class="meal-name">С форелью слабосоленой<span class="meal-price">250 ₽</span></div>
+                        </div>
+                        <div class="meal-item">
+                            <div class="meal-name">Со сметаной и вареньем<span class="meal-price">250 ₽</span></div>
+                            <div class="meal-description">Малина, черника, смородина, ягодный соус</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desserts -->
+                <div class="meal-category">
+                    <div class="meal-category-title">🍰 Десерты</div>
+                    <div class="meal-items">
+                        <div class="meal-item">
+                            <div class="meal-name">Три молока<span class="meal-price">350 ₽</span></div>
+                            <div class="meal-description">Фирменный десерт и фаворит среди наших гостей</div>
+                        </div>
+                        <div class="meal-item">
+                            <div class="meal-name">Торт медовый с облепихой<span class="meal-price">320 ₽</span></div>
+                        </div>
+                        <div class="meal-item">
+                            <div class="meal-name">Морковный торт<span class="meal-price">340 ₽</span></div>
+                        </div>
+                        <div class="meal-item">
+                            <div class="meal-name">Торт грушевый 'Ларри'<span class="meal-price">330 ₽</span></div>
+                        </div>
+                        <div class="meal-item">
+                            <div class="meal-name">Пирог шоколадный безглютеновый<span class="meal-price">360 ₽</span></div>
+                        </div>
+                        <div class="meal-item">
+                            <div class="meal-name">Чизкейк карамельный<span class="meal-price">380 ₽</span></div>
+                        </div>
+                        <div class="meal-item">
+                            <div class="meal-name">Чизкейк баскский фисташка<span class="meal-price">390 ₽</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional meal categories -->
+                <div class="meal-category">
+                    <div class="meal-category-title">🍞 Тосты и хлеб</div>
+                    <div class="meal-items">
+                        <div class="meal-item">
+                            <div class="meal-name">Бенедикт с форелью или креветками<span class="meal-price">490 ₽</span></div>
+                        </div>
+                        <div class="meal-item">
+                            <div class="meal-name">Ход-дог «Нью-Йорк»<span class="meal-price">270 ₽</span></div>
+                        </div>
+                        <div class="meal-item">
+                            <div class="meal-name">Тост с креветками<span class="meal-price">350 ₽</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="meal-category">
+                    <div class="meal-category-title">🥗 Салаты</div>
+                    <div class="meal-items">
+                        <div class="meal-item">
+                            <div class="meal-name">Цезарь с курицей<span class="meal-price">350 ₽</span></div>
+                        </div>
+                        <div class="meal-item">
+                            <div class="meal-name">Цезарь с креветками<span class="meal-price">390 ₽</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="meal-category">
+                    <div class="meal-category-title">🍝 Паста</div>
+                    <div class="meal-items">
+                        <div class="meal-item">
+                            <div class="meal-name">Зеленая паста с креветками<span class="meal-price">410 ₽</span></div>
+                        </div>
+                        <div class="meal-item">
+                            <div class="meal-name">Фетучини с курицей и грибами<span class="meal-price">370 ₽</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="meal-category">
+                    <div class="meal-category-title">🍕 Пицца</div>
+                    <div class="meal-items">
+                        <div class="meal-item">
+                            <div class="meal-name">Маргарита 360 г<span class="meal-price">439 ₽</span></div>
+                        </div>
+                        <div class="meal-item">
+                            <div class="meal-name">Мясная 380 г<span class="meal-price">439 ₽</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<div class="meal-category">
+    <div class="meal-category-title">🍲 Супы</div>
+    <div class="meal-items">
+        <div class="meal-item">
+            <div class="meal-name">Сырный крем суп<span class="meal-price">370 ₽</span></div>
+            <div class="meal-description">Овощной бульон, сливочный сыр, сухари</div>
+        </div>
+        <div class="meal-item">
+            <div class="meal-name">Тыквенный крем суп<span class="meal-price">330 ₽</span></div>
+            <div class="meal-description">Тыква, лук, кокосовое молоко</div>
+        </div>
+        <div class="meal-item">
+            <div class="meal-name">Грибной крем суп<span class="meal-price">350 ₽</span></div>
+            <div class="meal-description">Шампиньоны, лук, сливки, сухари</div>
+        </div>
+    </div>
+</div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-overlay"></div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>BRODSKY.</h3>
+                    <p>Мы стремимся предложить лучший кофейный опыт в художественной атмосфере, вдохновленной поэтом Иосифом Бродским</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Часы работы</h3>
+                    <p>Воскресенье - Четверг: 8:00 - 23:00</p>
+                    <p>Пятница - Суббота: 8:00 - 00:00</p>
+                    <p>Праздничные дни: 9:00 - 22:00</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Улица Искусств, Центр города</p>
+                        <p><i class="fas fa-phone"></i> +7 (XXX) XXX-XXXX</p>
+                        <p><i class="fas fa-envelope"></i> info@brodskycoffee.ru</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2023 BRODSKY. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Button -->
+    <div class="cart-button">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count">0</span>
+    </div>
+
+    <script>
+        // Category switching functionality
+        document.querySelectorAll('.category-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                document.querySelectorAll('.category-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+
+                // Add active class to clicked button
+                button.classList.add('active');
+
+                // Hide all sections
+                document.querySelectorAll('.menu-section').forEach(section => {
+                    section.style.display = 'none';
+                });
+
+                // Show selected section
+                const category = button.getAttribute('data-category');
+                document.getElementById(category).style.display = 'block';
+
+                // Scroll to the section
+                document.getElementById(category).scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('input', () => {
+            const searchTerm = searchInput.value.toLowerCase();
+
+            document.querySelectorAll('.menu-card, .meal-item').forEach(item => {
+                const itemName = item.querySelector('.item-name, .meal-name').textContent.toLowerCase();
+
+                if (itemName.includes(searchTerm)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+
+        // Cart functionality
+        const cartButton = document.querySelector('.cart-button');
+        const cartCount = document.querySelector('.cart-count');
+        let cartItems = 0;
+
+        document.querySelectorAll('.menu-card, .meal-item').forEach(item => {
+            item.addEventListener('click', () => {
+                cartItems++;
+                cartCount.textContent = cartItems;
+
+                // Add animation
+                cartButton.classList.add('pulse');
+                setTimeout(() => {
+                    cartButton.classList.remove('pulse');
+                }, 500);
+            });
+        });
+
+        // Initialize the first section
+        document.getElementById('coffee').style.display = 'block';
+    </script>
+</body>
+</html>
