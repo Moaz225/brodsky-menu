@@ -517,25 +517,30 @@
             border: 1px solid rgba(255, 119, 0, 0.1);
         }
 
-        .meal-name {
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: nowrap;
-            width: 100%;
-        }
+.meal-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 6px;
+    line-height: 1.4;
+}
 
-        .meal-price {
-            color: var(--primary);
-            font-weight: 700;
-            white-space: nowrap;
-            display: inline-block;
-            line-height: 1;
-            vertical-align: middle;
-        }
+
+.meal-price {
+    color: var(--primary);
+    font-weight: 700;
+    white-space: nowrap;
+    display: inline-block;
+    line-height: 1.2;
+    font-size: 1.05rem;
+    margin-left: auto;
+}
+
 
         .meal-description {
             color: var(--text);
@@ -906,42 +911,6 @@
                     </div>
                 </div>
 
-                <!-- Special Tea -->
-                <div class="menu-card">
-                    <div class="card-header">
-                        <span class="item-name">Дянь Хун</span>
-                        <span class="item-price">350₽</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="item-description">
-                            <span class="ru-name">Дянь Хун — 300 мл</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu-card">
-                    <div class="card-header">
-                        <span class="item-name">Би Ло Чунь</span>
-                        <span class="item-price">350₽</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="item-description">
-                            <span class="ru-name">Би Ло Чунь — 300 мл</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu-card">
-                    <div class="card-header">
-                        <span class="item-name">Да Хун Пао</span>
-                        <span class="item-price">350₽</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="item-description">
-                            <span class="ru-name">Да Хун Пао — 300 мл</span>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -966,12 +935,12 @@
 
                 <div class="menu-card">
                     <div class="card-header">
-                        <span class="item-name">Специальное какао</span>
+                        <span class="item-name">Specialty «UNICAVA»</span>
                         <span class="item-price">300₽</span>
                     </div>
                     <div class="card-body">
                         <div class="item-description">
-                            <span class="ru-name">Specialty «UNICAVA» — 200 мл</span>
+                            <span class="ru-name">Specialty «UNICAVA» — 300 мл</span>
                         </div>
                     </div>
                 </div>
@@ -1061,7 +1030,7 @@
                         </div>
                         <div class="meal-item">
                             <div class="meal-name">Сырники со сметаной<span class="meal-price">270₽</span></div>
-                            <div class="meal-description">Добавь варенье, сгущенку или соленую карамель +80₽</div>
+
                         </div>
                         <div class="meal-item">
                             <div class="meal-name">Самый сытный завтрак<span class="meal-price">450₽</span></div>
@@ -1095,8 +1064,8 @@
                             <div class="meal-description">Со сметаной и вареньем</div>
                         </div>
                         <div class="meal-item">
-                            <div class="meal-name">Творожная запеканка с мороженым<span class="meal-price">370₽</span></div>
-                            <div class="meal-description">Ягодный соус</div>
+                            <div class="meal-name">Творожная запеканка<span class="meal-price">370₽</span></div>
+                            <div class="meal-description"> с мороженым и Ягодный соус</div>
                         </div>
                         <div class="meal-item">
                             <div class="meal-name">Оладьи из цукини с форелью<span class="meal-price">300₽</span></div>
@@ -1107,7 +1076,8 @@
                             <div class="meal-description">Добавь варенье, сгущенку или соленую карамель +80₽</div>
                         </div>
                         <div class="meal-item">
-                            <div class="meal-name">Сырники с манговым курдом и крем-сыром<span class="meal-price">300₽</span></div>
+                            <div class="meal-name">Сырники<span class="meal-price">300₽</span></div>
+                            <div class="meal-description">с манговым курдом и крем-сыром</div>
                         </div>
                     </div>
                 </div>
@@ -1153,7 +1123,7 @@
                             <div class="meal-name">Торт грушевый 'Ларри'<span class="meal-price">330₽</span></div>
                         </div>
                         <div class="meal-item">
-                            <div class="meal-name">Пирог шоколадный безглютеновый<span class="meal-price">360₽</span></div>
+                            <div class="meal-name">Пирог шоколадный <span class="meal-price">360₽</span></div>
                         </div>
                         <div class="meal-item">
                             <div class="meal-name">Чизкейк карамельный<span class="meal-price">380₽</span></div>
@@ -1244,30 +1214,38 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>BRODSKY.</h3>
-                    <p>Мы стремимся предложить лучший кофейный опыт в художественной атмосфере, вдохновленной поэтом Иосифом Бродским</p>
+<p style="color: #ccc; font-size: 0.95rem; line-height: 1.6; max-width: 350px;">
+    Сеть спешелти-кофеен из Екатеринбурга. Мы меняем культуру потребления кофе: показываем, насколько богатым и многогранным может быть натуральный вкус качественного зерна. Без сиропов, без компромиссов — только тщательно отобранные лоты и продуманные рецептуры.
+</p>
+<p style="color: #ccc; font-size: 0.95rem; line-height: 1.6; max-width: 350px; margin-top: 15px;">
+    Наши две кофейни — это особые пространства с уникальной атмосферой, где каждая деталь создана для вдохновения. Проверьте и исправьте цены по меню.
+</p>
+
+
+
                     <div class="social-icons">
                         <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="meals.html"><i class="fab fa-vk"></i></a>
+
                     </div>
                 </div>
 
-                <div class="footer-section">
-                    <h3>Часы работы</h3>
-                    <p>Воскресенье - Четверг: 8:00 - 23:00</p>
-                    <p>Пятница - Суббота: 8:00 - 00:00</p>
-                    <p>Праздничные дни: 9:00 - 22:00</p>
-                </div>
+<div class="footer-section">
+    <h3 style="color: #ff7700;">Часы работы</h3>
+    <p style="color: #ccc;">Понедельник – Пятница: 8:00 – 21:00</p>
+    <p style="color: #ccc;">Суббота – Воскресенье: 9:00 – 21:00</p>
+</div>
 
-                <div class="footer-section">
-                    <h3>Контакты</h3>
-                    <div class="contact-info">
-                        <p><i class="fas fa-map-marker-alt"></i> Улица Искусств, Центр города</p>
-                        <p><i class="fas fa-phone"></i> +7 (XXX) XXX-XXXX</p>
-                        <p><i class="fas fa-envelope"></i> info@brodskycoffee.ru</p>
-                    </div>
-                </div>
+
+<div class="footer-section">
+    <h3 style="color: #ff7700;">Контакты</h3>
+    <div class="contact-info" style="color: #ccc; font-size: 0.95rem; line-height: 1.8;">
+        <p><i class="fas fa-map-marker-alt" style="margin-right: 8px; color: #ff7700;"></i>Улица Искусств, Центр города</p>
+        <p><i class="fas fa-phone" style="margin-right: 8px; color: #ff7700;"></i>+7 (XXX) XXX-XXXX</p>
+        <p><i class="fas fa-envelope" style="margin-right: 8px; color: #ff7700;"></i>info@brodskycoffee.ru</p>
+    </div>
+</div>
+
             </div>
 
             <div class="copyright">
@@ -1276,53 +1254,47 @@
         </div>
     </footer>
 
-    <script>
-        // Category switching functionality
-        document.querySelectorAll('.category-btn').forEach(button => {
-            button.addEventListener('click', () => {
-                // Remove active class from all buttons
-                document.querySelectorAll('.category-btn').forEach(btn => {
-                    btn.classList.remove('active');
-                });
+<!-- سكربت الوظائف الأساسية (الأقسام + البحث) -->
+<script>
+    // Category switching functionality
+    document.querySelectorAll('.category-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
 
-                // Add active class to clicked button
-                button.classList.add('active');
+            document.querySelectorAll('.menu-section').forEach(section => section.style.display = 'none');
 
-                // Hide all sections
-                document.querySelectorAll('.menu-section').forEach(section => {
-                    section.style.display = 'none';
-                });
+            const category = button.getAttribute('data-category');
+            document.getElementById(category).style.display = 'block';
 
-                // Show selected section
-                const category = button.getAttribute('data-category');
-                document.getElementById(category).style.display = 'block';
+            document.getElementById(category).scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
 
-                // Scroll to the section
-                document.getElementById(category).scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            });
+    // Search functionality
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('input', () => {
+        const searchTerm = searchInput.value.trim().toLowerCase();
+        const allSections = document.querySelectorAll('.menu-section');
+        const allItems = document.querySelectorAll('.menu-card, .meal-item');
+
+        allSections.forEach(section => section.style.display = 'block');
+
+        allItems.forEach(item => {
+            const nameElement = item.querySelector('.item-name') || item.querySelector('.meal-name');
+            const itemName = nameElement ? nameElement.textContent.toLowerCase() : "";
+
+            item.style.display = itemName.includes(searchTerm) ? 'block' : 'none';
         });
 
-        // Search functionality
-        const searchInput = document.getElementById('searchInput');
-        searchInput.addEventListener('input', () => {
-            const searchTerm = searchInput.value.toLowerCase();
+        if (searchTerm === "") {
+            allItems.forEach(item => item.style.display = '');
+        }
+    });
 
-            document.querySelectorAll('.menu-card, .meal-item').forEach(item => {
-                const itemName = item.querySelector('.item-name, .meal-name').textContent.toLowerCase();
+    // Show first section by default
+    document.getElementById('coffee').style.display = 'block';
+</script>
 
-                if (itemName.includes(searchTerm)) {
-                    item.style.display = 'flex';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        });
-
-        // Initialize the first section
-        document.getElementById('coffee').style.display = 'block';
-    </script>
 </body>
 </html>
