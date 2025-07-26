@@ -12,39 +12,46 @@
     margin: 0;
     padding: 0;
 }
-        .hero {
-            background: linear-gradient(135deg, #ff7700, #e56a00);
-            padding: 60px 0;
-            text-align: center;
-        }
-
-        .logo {
-            font-size: 3.5rem;
-            color: white;
-            letter-spacing: 6px;
-            font-weight: 700;
-            text-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .logo-divider {
-            width: 100px;
-            height: 4px;
-            margin: 20px auto 0;
-            background: linear-gradient(to right, transparent, #ffffff, transparent);
-            border-radius: 2px;
-        }
-
-:root {
-    --primary: #ff7700;
-    --primary-light: #ffa552;
-    --primary-dark: #e56a00;
-    --light: #ffffff;
-    --dark: #333333;
-    --gray: #f5f5f5;
-    --border: #e0e0e0;
-    --text: #444444;
-    --section-bg: #fffaf5;
+ .hero {
+  background-color: #ffffff;
+  padding: 40px 0 20px;
+  text-align: center;
 }
+
+.logo {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: 5px;
+  color: #000000;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+}
+
+.logo .dot {
+  color: #ff7700;
+  font-size: 3rem;
+  margin-left: 3px;
+}
+
+.logo-divider {
+  height: 2px;
+  width: 180px;
+  margin: 15px auto 0;
+  background: linear-gradient(to right, transparent, #ff7700, transparent);
+  border-radius: 1px;
+}
+
+       :root {
+            --primary: #ff7700;
+            --primary-light: #ffa552;
+            --primary-dark: #e56a00;
+            --light: #ffffff;
+            --dark: #333333;
+            --gray: #f5f5f5;
+            --border: #e0e0e0;
+            --text: #444444;
+            --section-bg: #fffff;
+        }
 
         * {
             margin: 0;
@@ -70,42 +77,51 @@ background:
 }
 
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+ .container {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto; /* لتوسيط العنصر أفقيًا */
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.meals-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
 
         /* Header Styles */
-        header {
-            background: linear-gradient(to right, var(--primary), var(--primary-dark));
-            color: var(--light);
-            padding: 25px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-        }
+/* Header Styles */
+header {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 25px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
 
-        .header-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 Q50,20 100,0 L100,100 Q50,80 0,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
-            background-size: cover;
-        }
+.header-overlay {
+    display: none !important;
+    background: none !important;
+}
 
-        .logo {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            position: relative;
-            z-index: 2;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-            letter-spacing: 2px;
-        }
+.logo {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: 5px;
+  color: #000000;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+}
+
+.logo .dot {
+  color: #ff7700;
+  font-size: 3rem;
+  margin-left: 3px;
+}
 
         /* Navigation */
         .categories {
@@ -274,58 +290,50 @@ background:
         }
 
         /* Footer */
-        footer {
-            background: linear-gradient(to right, #222, #333);
-            color: var(--light);
-            padding: 60px 0 20px;
-            margin-top: 70px;
-            position: relative;
-            background-color: #1a1a1a; /* أو أي لون داكن */
-            position: relative;
-            z-index: 1;
-        }
-
-.footer-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
+footer {
+    background: linear-gradient(to right, #222, #333);
+    color: var(--light);
+    padding: 60px 20px 40px;
+    margin-top: 0; /* أزلنا الهامش العلوي */
+    position: relative;
     width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5); /* طبقة نصف شفافة */
-    z-index: 0;
+    border-top-left-radius: 80px;   /* تقويس ناعم من الأعلى */
+    border-top-right-radius: 80px;
+    overflow: hidden;
 }
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            position: relative;
-            z-index: 2;
-        }
 
-        .footer-section {
-            flex: 1;
-            min-width: 300px;
-            padding: 0 20px;
-            margin-bottom: 30px;
-        }
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+}
 
-        .footer-section h3 {
-            color: var(--primary);
-            margin-bottom: 20px;
-            font-size: 1.4rem;
-            position: relative;
-            padding-bottom: 10px;
-        }
+.footer-section {
+    flex: 1;
+    min-width: 300px;
+    padding: 0 20px;
+    margin-bottom: 30px;
+}
 
-        .footer-section h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 2px;
-            background-color: var(--primary);
-        }
+.footer-section h3 {
+    color: var(--primary);
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--primary);
+}
 
         .contact-info p {
             margin: 12px 0;
@@ -450,100 +458,125 @@ background:
             margin: 0 auto;
             margin-top: 15px;
         }
-
-        /* Meals section styles */
-        .meals-grid {
+       .meals-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 30px;
         }
-
+        
         .meal-category {
             background-color: var(--light);
             border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border: 1px solid rgba(255, 119, 0, 0.15);
         }
-
+        
         .meal-category-title {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             color: var(--primary);
-            margin-bottom: 15px;
-            padding-bottom: 10px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
             border-bottom: 2px solid var(--primary-light);
             display: flex;
             align-items: center;
         }
-
+        
         .meal-items {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
         }
-
+        
         .meal-item {
-            background-color: rgba(255, 119, 0, 0.05);
-            border-radius: 10px;
-            padding: 15px;
+            background-color: rgba(255, 119, 0, 0.03);
+            border-radius: 12px;
+            padding: 20px;
             border: 1px solid rgba(255, 119, 0, 0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
-
-.meal-name {
-    font-weight: 600;
-    font-size: 1.1rem;
-    margin-bottom: 5px;
+        
+        .meal-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(255, 119, 0, 0.1);
+            background-color: rgba(255, 119, 0, 0.05);
+        }
+        
+.meal-name-container {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    width: 100%;
-    gap: 6px;
-    line-height: 1.4;
+    align-items: center;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed rgba(255, 119, 0, 0.2);
 }
 
+.meal-name {
+    flex: 1;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--dark);
+    margin-right: 20px; /* تباعد إضافي */
+}
 
 .meal-price {
     color: var(--primary);
     font-weight: 700;
-    white-space: nowrap;
-    display: inline-block;
-    line-height: 1.2;
-    font-size: 1.05rem;
+    font-size: 1.2rem;
     margin-left: auto;
 }
-
-
+        
         .meal-description {
             color: var(--text);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            padding-top: 10px;
+            font-style: normal;
+        }
+        
+        .meal-details {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed rgba(255, 119, 0, 0.2);
             font-size: 0.9rem;
-            line-height: 1.5;
+            color: #666;
         }
-
-        .meal-subtitle {
-            font-size: 1.8rem;
+        
+        .meal-highlight {
             color: var(--primary);
-            text-align: center;
-            margin: 40px 0 20px;
-            position: relative;
-            padding-bottom: 15px;
+            font-weight: 500;
         }
-
-        .meal-subtitle::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background: var(--primary);
+        
+        /* تحسين التصميم للهواتف */
+        @media (max-width: 768px) {
+            .meal-items {
+                grid-template-columns: 1fr;
+            }
+            
+            .meal-name-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .meal-price {
+                margin-top: 8px;
+                align-self: flex-end;
+            }
         }
-        /* إضافة هذا الكود في نهاية الـ CSS */
+/* ✅ كود الاستجابة للأجهزة الصغيرة */
 @media (max-width: 768px) {
     body {
-        background-attachment: scroll !important;
+        background-attachment: scroll;
     }
 
+    .container {
+        padding: 0 15px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
     .categories {
         position: sticky;
         top: 0;
@@ -584,11 +617,12 @@ input, textarea, select {
 </head>
 <body>
     <!-- Header -->
-<header class="hero">
-    <h1 class="logo">BRODSKY.</h1>
+<header>
+  <div class="hero">
+    <h1 class="logo">BRODSKY<span class="dot">.</span></h1>
     <div class="logo-divider"></div>
+  </div> <!-- هذا الإغلاق مفقود هنا -->
 </header>
-
     <!-- Navigation -->
     <div class="container">
         <div class="search-container">
@@ -1017,14 +1051,14 @@ input, textarea, select {
         </section>
 
         <!-- Meals Section -->
-<section id="meals" class="menu-section">
-    <div class="section-title">
-        <h2>Блюда</h2>
-    </div>
+   <!-- قسم الوجبات المعدل -->
+    <section id="meals" class="menu-section">
+        <div class="section-title">
+            <h2>Блюда</h2>
+        </div>
 
-    <div class="container">
-        <div class="meals-grid">
-                <!-- Breakfast -->
+        <div class="container">
+            <div class="meals-grid">
                 <div class="meal-category">
                     <div class="meal-category-title">🍳 Завтраки до 14:00</div>
                     <div class="meal-items">
@@ -1461,7 +1495,7 @@ input, textarea, select {
 </p>
                     <div class="social-icons">
                         <a href="https://t.me/brodsky_coffee"><i class="fab fa-telegram"></i></a>
-                        <a href="meals.html"><i class="fab fa-vk"></i></a>
+                        <a href="https://vk.com/coffee_brodsky"><i class="fab fa-vk"></i></a>
 
                     </div>
                 </div>
