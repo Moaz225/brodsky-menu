@@ -139,7 +139,10 @@ header {
             max-width: 100%;
             margin: 30px auto;
         }
-
+        .categories .divider{
+  display:inline-block;width:2px;height:28px;
+  background:rgba(0,0,0,.08);margin:6px 10px;
+}
         .category-btn {
             padding: 12px 20px;
             font-size: 1rem;
@@ -291,15 +294,18 @@ header {
 
         /* Footer */
 footer {
-    background: linear-gradient(to right, #222, #333);
-    color: var(--light);
-    padding: 60px 20px 40px;
-    margin-top: 0; /* أزلنا الهامش العلوي */
-    position: relative;
-    width: 100%;
-    border-top-left-radius: 80px;   /* تقويس ناعم من الأعلى */
-    border-top-right-radius: 80px;
-    overflow: hidden;
+  /* Full-bleed */
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+
+  background: linear-gradient(to right, #222, #333);
+  color: var(--light);
+  padding: 60px 20px 40px;
+  position: relative;
+  border-top-left-radius: 80px;
+  border-top-right-radius: 80px;
+  overflow: hidden;
 }
 
 .footer-content {
@@ -463,7 +469,7 @@ footer {
             grid-template-columns: 1fr;
             gap: 30px;
         }
-        
+
         .meal-category {
             background-color: var(--light);
             border-radius: 15px;
@@ -471,7 +477,10 @@ footer {
             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
             border: 1px solid rgba(255, 119, 0, 0.15);
         }
-        
+
+        .meal-category { scroll-margin-top: 90px; }
+        .menu-section  { scroll-margin-top: 90px; }
+
         .meal-category-title {
             font-size: 1.5rem;
             color: var(--primary);
@@ -481,13 +490,13 @@ footer {
             display: flex;
             align-items: center;
         }
-        
+
         .meal-items {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 25px;
         }
-        
+
         .meal-item {
             background-color: rgba(255, 119, 0, 0.03);
             border-radius: 12px;
@@ -497,13 +506,13 @@ footer {
             display: flex;
             flex-direction: column;
         }
-        
+
         .meal-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 20px rgba(255, 119, 0, 0.1);
             background-color: rgba(255, 119, 0, 0.05);
         }
-        
+
 .meal-name-container {
     display: flex;
     justify-content: space-between;
@@ -527,7 +536,7 @@ footer {
     font-size: 1.2rem;
     margin-left: auto;
 }
-        
+
         .meal-description {
             color: var(--text);
             font-size: 0.95rem;
@@ -535,7 +544,7 @@ footer {
             padding-top: 10px;
             font-style: normal;
         }
-        
+
         .meal-details {
             margin-top: 15px;
             padding-top: 15px;
@@ -543,63 +552,78 @@ footer {
             font-size: 0.9rem;
             color: #666;
         }
-        
+
         .meal-highlight {
             color: var(--primary);
             font-weight: 500;
         }
-        
+        .meal-item .meal-name{
+  display: flex;               /* المهم */
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;                   /* زِدها لو تريد مسافة أكبر */
+  margin-right: 0;             /* إلغاء القديم */
+}
+
+.meal-item .meal-price{
+  margin-left: auto;           /* يدفعه لليمين */
+  white-space: nowrap;         /* يمنع نزول السعر سطر جديد */
+  padding-left: 12px;          /* مسافة بصرية */
+}
+
         /* تحسين التصميم للهواتف */
         @media (max-width: 768px) {
             .meal-items {
                 grid-template-columns: 1fr;
             }
-            
+
             .meal-name-container {
                 flex-direction: column;
                 align-items: flex-start;
             }
-            
+
             .meal-price {
                 margin-top: 8px;
                 align-self: flex-end;
             }
         }
 /* ✅ كود الاستجابة للأجهزة الصغيرة */
+/* ✅ كود الاستجابة للأجهزة الصغيرة */
 @media (max-width: 768px) {
-    body {
-        background-attachment: scroll;
-    }
+  body { background-attachment: scroll; }
 
-    .container {
-        padding: 0 15px;
-        width: 100%;
-        box-sizing: border-box;
-    }
-}
-    .categories {
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        padding: 8px;
-    }
+  .container {
+    padding: 0 15px;
+    width: 100%;
+    box-sizing: border-box;
+  }
 
-    .category-btn {
-        padding: 10px 15px;
-        font-size: 0.9rem;
-        margin: 3px;
-        flex-grow: 1;
-        text-align: center;
-    }
+  .categories { padding: 8px; }
+  .category-btn {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    margin: 3px;
+    flex-grow: 1;
+    text-align: center;
+  }
 
-    .card-header {
-        padding: 14px 18px;
-    }
+  .card-header { padding: 14px 18px; }
+  .card-body { padding: 20px; }
 
-    .card-body {
-        padding: 20px;
-    }
-}
+  .meal-items {
+    grid-template-columns: 1fr;
+  }
+   .menu-section, .meal-category { scroll-margin-top: 90px; }
+  .meal-name-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .meal-price {
+    margin-top: 8px;
+    align-self: flex-end;
+  }
+} /* ← لا تضيف أقواس إضافية بعد هذا السطر */
 
 @supports (-webkit-touch-callout: none) {
     body {
@@ -613,6 +637,38 @@ input, textarea, select {
     transform: scale(1);
     min-height: 44px !important;
 }
+        /* Back-to-top button */
+#toTop{
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  width: 46px;
+  height: 46px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,.18);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity .25s ease, transform .25s ease, background .2s ease;
+  z-index: 9999;
+}
+#toTop:hover{ background: var(--primary-dark); }
+#toTop.show{ opacity: 1; transform: translateY(0); pointer-events: all; }
+#toTop i{ font-size: 18px; line-height: 1; }
+
+@media (max-width: 768px){
+  #toTop{ right: 14px; bottom: 14px; width: 44px; height: 44px; }
+}
+
+/* تمرير سلس عام (اختياري) */
+html{ scroll-behavior: smooth; }
+
     </style>
 </head>
 <body>
@@ -631,15 +687,30 @@ input, textarea, select {
         </div>
 
 
-        <div class="categories">
-            <button class="category-btn active" data-category="coffee">Кофе</button>
-            <button class="category-btn" data-category="seasonal">Сезонные напитки</button>
-            <button class="category-btn" data-category="tea">Чай</button>
-            <button class="category-btn" data-category="cocoa">Какао</button>
-            <button class="category-btn" data-category="fresh">Свежие соки</button>
-            <button class="category-btn" data-category="meals">Блюда</button>
-        </div>
-    </div>
+<div class="categories">
+  <!-- الأقسام الرئيسية -->
+  <button class="category-btn active" data-target="coffee">Кофе</button>
+  <button class="category-btn" data-target="seasonal">Сезонные напитки</button>
+  <button class="category-btn" data-target="tea">Чай</button>
+  <button class="category-btn" data-target="cocoa">Какао</button>
+  <button class="category-btn" data-target="fresh">Свежие соки</button>
+  <button class="category-btn" data-target="meals">Блюда</button>
+
+  <!-- فاصل بصري (اختياري) -->
+  <span class="divider"></span>
+
+  <!-- الفئات الفرعية داخل «Блюда» -->
+  <button class="category-btn" data-target="meals-desserts">Десерты</button>
+  <button class="category-btn" data-target="meals-soups">Супы</button>
+  <button class="category-btn" data-target="meals-pancakes">Блины</button>
+  <button class="category-btn" data-target="meals-curd">Творог и сырники</button>
+  <button class="category-btn" data-target="meals-breakfasts">Завтраки до 14:00</button>
+  <button class="category-btn" data-target="meals-toasts">Тосты и хлеб</button>
+  <button class="category-btn" data-target="meals-salads">Салаты</button>
+  <button class="category-btn" data-target="meals-pasta">Паста</button>
+  <button class="category-btn" data-target="meals-pizza">Пицца</button>
+</div>
+
 
     <div class="container">
         <!-- Coffee Section -->
@@ -1050,6 +1121,8 @@ input, textarea, select {
             </div>
         </section>
 
+
+
         <!-- Meals Section -->
    <!-- قسم الوجبات المعدل -->
     <section id="meals" class="menu-section">
@@ -1060,7 +1133,7 @@ input, textarea, select {
         <div class="container">
             <div class="meals-grid">
                 <div class="meal-category">
-                    <div class="meal-category-title">🍳 Завтраки до 14:00</div>
+                    <div class="meal-category" id="meals-breakfasts">… 🍳 Завтраки до 14:00 …</div>
                     <div class="meal-items">
                         <div class="meal-item">
                             <div class="meal-name">Рисовая каша<span class="meal-price">170₽</span></div>
@@ -1168,7 +1241,7 @@ input, textarea, select {
 
                 <!-- Cottage Cheese and Cheesecakes -->
                 <div class="meal-category">
-                    <div class="meal-category-title">🧀 Творог и сырники</div>
+                    <div class="meal-category" id="meals-curd">… 🧀 Творог и сырники …</div>
                     <div class="meal-items">
                         <div class="meal-item">
                             <div class="meal-name">Творожная запеканка<span class="meal-price">370₽</span></div>
@@ -1187,7 +1260,7 @@ input, textarea, select {
 
                 <!-- Pancakes -->
                 <div class="meal-category">
-                    <div class="meal-category-title">🥞 Блины</div>
+                    <div class="meal-category" id="meals-pancakes">… 🥞 Блины …</div>
                     <div class="meal-items">
                         <div class="meal-item">
                             <div class="meal-name">Блины<span class="meal-price">300₽</span></div>
@@ -1214,7 +1287,7 @@ input, textarea, select {
 
 <!-- Toasts and Bread -->
 <div class="meal-category">
-    <div class="meal-category-title">🍞 Тосты и хлеб</div>
+    <div class="meal-category" id="meals-toasts">… 🍞 Тосты и хлеб …</div>
     <div class="meal-items">
 
         <div class="meal-item">
@@ -1253,7 +1326,7 @@ input, textarea, select {
 
                 <!-- Salads -->
                 <div class="meal-category">
-                    <div class="meal-category-title">🥗 Салаты</div>
+                    <div class="meal-category" id="meals-salads">… 🥗 Салаты …</div>
                     <div class="meal-items">
                         <div class="meal-item">
                             <div class="meal-name">🥗 Цезарь с курицей<span class="meal-price">350₽</span></div>
@@ -1268,7 +1341,7 @@ input, textarea, select {
 
 <!-- Pasta -->
                 <div class="meal-category">
-                    <div class="meal-category-title">🍝 Паста</div>
+                    <div class="meal-category" id="meals-pasta">… 🍝 Паста …</div>
                     <div class="meal-items">
                         <div class="meal-item">
                             <div class="meal-name">паста с креветками<span class="meal-price">410₽</span></div>
@@ -1292,7 +1365,7 @@ input, textarea, select {
 
                <!-- Pizza -->
                 <div class="meal-category">
-                    <div class="meal-category-title">🍕 Пицца</div>
+                    <div class="meal-category" id="meals-pizza">… 🍕 Пицца …</div
                     <div class="meal-items">
                         <div class="meal-item">
                             <div class="meal-name">🍕 Маргарита 360 г<span class="meal-price">439₽</span></div>
@@ -1315,7 +1388,7 @@ input, textarea, select {
                 </div>
 
                 <div class="meal-category">
-                    <div class="meal-category-title">🍲 Супы</div>
+                    <div class="meal-category" id="meals-soups">… 🍲 Супы …</div>
                     <div class="meal-items">
                         <div class="meal-item">
                             <div class="meal-name">Сырный крем суп<span class="meal-price">370₽</span></div>
@@ -1335,7 +1408,7 @@ input, textarea, select {
 
                 <!-- Desserts -->
                 <div class="meal-category">
-                    <div class="meal-category-title">🍰 Десерты</div>
+                    <div class="meal-category" id="meals-desserts">… 🍰 Десерты …</div>
                     <div class="meal-items">
                         <div class="meal-item">
                             <div class="meal-name">🍰 Три молока<span class="meal-price">350₽</span></div>
@@ -1478,6 +1551,9 @@ input, textarea, select {
 </section> <!-- نهاية section#meals -->
 
 
+<button id="toTop" aria-label="Наверх" title="Наверх">
+  <i class="fas fa-arrow-up"></i>
+</button>
 
 
     <!-- Footer -->
@@ -1528,44 +1604,87 @@ input, textarea, select {
 
 <!-- سكربت الوظائف الأساسية (الأقسام + البحث) -->
 <script>
-    // Category switching functionality
-    document.querySelectorAll('.category-btn').forEach(button => {
-        button.addEventListener('click', () => {
-            document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
+(() => {
+  const sections    = document.querySelectorAll('.menu-section');
+  const buttons     = document.querySelectorAll('.category-btn');
+  const searchInput = document.getElementById('searchInput');
 
-            document.querySelectorAll('.menu-section').forEach(section => section.style.display = 'none');
+  function hideAllSections(){ sections.forEach(s => s.style.display = 'none'); }
 
-            const category = button.getAttribute('data-category');
-            document.getElementById(category).style.display = 'block';
+  function showSection(target, doScroll = true){
+    hideAllSections();
 
-            document.getElementById(category).scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
+    if (target && target.startsWith('meals-')) {
+      const meals = document.getElementById('meals');
+      if (meals) meals.style.display = 'block';
+      const sub = document.getElementById(target);
+      if (sub && doScroll) sub.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      const sec = document.getElementById(target || 'coffee');
+      if (sec) {
+        sec.style.display = 'block';
+        if (doScroll) sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  }
+
+  // أزرار الأقسام الرئيسية والفرعية
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const target = btn.dataset.target || btn.dataset.category;
+
+      // إعادة ضبط البحث
+      if (searchInput) searchInput.value = '';
+      document.querySelectorAll('.menu-card, .meal-item').forEach(i => i.style.display = '');
+
+      showSection(target);
     });
+  });
 
-    // Search functionality
-    const searchInput = document.getElementById('searchInput');
+  // العرض الافتراضي
+  showSection('coffee', false);
+  document.querySelector('.category-btn[data-target="coffee"], .category-btn[data-category="coffee"]')?.classList.add('active');
+
+  // البحث
+  if (searchInput){
     searchInput.addEventListener('input', () => {
-        const searchTerm = searchInput.value.trim().toLowerCase();
-        const allSections = document.querySelectorAll('.menu-section');
-        const allItems = document.querySelectorAll('.menu-card, .meal-item');
+      const term  = searchInput.value.trim().toLowerCase();
+      const items = document.querySelectorAll('.menu-card, .meal-item');
 
-        allSections.forEach(section => section.style.display = 'block');
-
-        allItems.forEach(item => {
-            const nameElement = item.querySelector('.item-name') || item.querySelector('.meal-name');
-            const itemName = nameElement ? nameElement.textContent.toLowerCase() : "";
-
-            item.style.display = itemName.includes(searchTerm) ? 'block' : 'none';
+      if (term){
+        // أثناء البحث نُظهر كل الأقسام
+        sections.forEach(s => s.style.display = 'block');
+        items.forEach(item => {
+          const nameEl = item.querySelector('.item-name') || item.querySelector('.meal-name');
+          const name   = nameEl ? nameEl.textContent.toLowerCase() : '';
+          item.style.display = name.includes(term) ? '' : 'none';
         });
-
-        if (searchTerm === "") {
-            allItems.forEach(item => item.style.display = '');
-        }
+      } else {
+        // عند مسح البحث نرجع للقسم النشط
+        items.forEach(i => i.style.display = '');
+        const activeBtn = document.querySelector('.category-btn.active');
+        const target = activeBtn ? (activeBtn.dataset.target || activeBtn.dataset.category) : 'coffee';
+        showSection(target, false);
+      }
     });
+  }
 
-    // Show first section by default
-    document.getElementById('coffee').style.display = 'block';
+  // زر الرجوع لأعلى (اختياري)
+  const toTop = document.getElementById('toTop');
+  if (toTop){
+    const showAt = 300;
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > showAt) toTop.classList.add('show'); else toTop.classList.remove('show');
+    });
+    toTop.addEventListener('click', () => {
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
+    });
+  }
+})();
 </script>
 
 </body>
