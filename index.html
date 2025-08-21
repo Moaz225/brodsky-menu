@@ -13,7 +13,7 @@
     padding: 0;
 }
 .hero {
-  background-color: transparent !importan;
+  background-color: transparent !important;
   padding: 40px 0 20px;
   text-align: center;
 }
@@ -50,7 +50,8 @@
             --gray: #f5f5f5;
             --border: #e0e0e0;
             --text: #444444;
-            --section-bg: #fffff;
+            --section-bg: #ffffff;
+
         }
 
         * {
@@ -75,6 +76,9 @@ background:
     overflow-x: hidden;
     position: relative;
 }
+img, .menu-card, .meal-item{ max-width: 100%; }
+.container, .menu-card, .meal-item{ overflow-wrap: anywhere; }
+html, body { overflow-x: hidden; }
 
 
  .container {
@@ -130,8 +134,8 @@ header {
             flex-wrap: wrap;
             background-color: var(--light);
             margin: 30px 0;
-            position: sticky;
-            top: 0;
+            position: static;
+            top: auto;
             z-index: 90;
             box-shadow: 0 2px 15px rgba(0,0,0,0.08);
             border-radius: 10px;
@@ -209,7 +213,7 @@ header {
 
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 25px;
         }
 
@@ -293,12 +297,12 @@ header {
         }
 
         /* Footer */
-footer {
-  /* Full-bleed */
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-
+/* القاعدة العامة الآمنة */
+/* Footer (القاعدة العامة الآمنة) */
+footer{
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
   background: linear-gradient(to right, #222, #333);
   color: var(--light);
   padding: 60px 20px 40px;
@@ -583,8 +587,8 @@ footer {
         }
 /* ✅ كود الاستجابة للأجهزة الصغيرة */
 /* ✅ كود الاستجابة للأجهزة الصغيرة */
-@media (max-width: 768px) {
-  body { background-attachment: scroll; }
+@media (max-width: 480px){
+  .menu-grid, .meal-items{ grid-template-columns: 1fr; }
 
   .container {
     padding: 0 15px;
@@ -605,7 +609,9 @@ footer {
   .card-body { padding: 20px; }
 
   .meal-items {
-    grid-template-columns: 1fr;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
   }
    .menu-section, .meal-category { scroll-margin-top: 90px; }
   .meal-name-container {
@@ -631,7 +637,7 @@ input, textarea, select {
     transform: scale(1);
     min-height: 44px !important;
 }
-        /* Back-to-top button */
+      /* Back-to-top button */
 #toTop{
   position: fixed;
   right: 22px;
@@ -646,22 +652,43 @@ input, textarea, select {
   place-items: center;
   box-shadow: 0 8px 20px rgba(0,0,0,.18);
   cursor: pointer;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(10px);
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: translateY(0) !important;
+  z-index: 2147483647 !important; /* أقصى أولوية */
   transition: opacity .25s ease, transform .25s ease, background .2s ease;
   z-index: 9999;
 }
 #toTop:hover{ background: var(--primary-dark); }
-#toTop.show{ opacity: 1; transform: translateY(0); pointer-events: all; }
+#toTop.show{ opacity: 1; transform: translateY(0); pointer-events: auto; }
 #toTop i{ font-size: 18px; line-height: 1; }
 
 @media (max-width: 768px){
   #toTop{ right: 14px; bottom: 14px; width: 44px; height: 44px; }
 }
 
+
 /* تمرير سلس عام (اختياري) */
 html{ scroll-behavior: smooth; }
+        /* امتداد كامل على الأجهزة الحديثة بدون overflow */
+@supports (width: 100dvw){
+  footer{
+    width: 100dvw;
+    margin-left: calc(50% - 50dvw);
+    margin-right: calc(50% - 50dvw);
+  }
+}
+
+/* ضمان عدم الميل على الموبايل */
+@media (max-width: 768px){
+  footer{
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    border-top-left-radius: 40px;   /* اختياري */
+    border-top-right-radius: 40px;  /* اختياري */
+  }
+}
 
     </style>
 </head>
@@ -1545,11 +1572,6 @@ html{ scroll-behavior: smooth; }
 </section> <!-- نهاية section#meals -->
 
 
-<button id="toTop" aria-label="Наверх" title="Наверх">
-  <i class="fas fa-arrow-up"></i>
-</button>
-
-
     <!-- Footer -->
     <footer>
         <div class="footer-overlay"></div>
@@ -1596,12 +1618,17 @@ html{ scroll-behavior: smooth; }
         </div>
     </footer>
 
-<!-- سكربت الوظائف الأساسية (الأقسام + البحث) -->
+        <button id="toTop" aria-label="Наверх" title="Наверх">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<!-- سكربت الوظائف الأساسية (الأقسام + البحث + زر لأعلى) -->
 <script>
-(() => {
+document.addEventListener('DOMContentLoaded', () => {
   const sections    = document.querySelectorAll('.menu-section');
   const buttons     = document.querySelectorAll('.category-btn');
   const searchInput = document.getElementById('searchInput');
+  const toTop       = document.getElementById('toTop');
 
   function hideAllSections(){ sections.forEach(s => s.style.display = 'none'); }
 
@@ -1622,7 +1649,7 @@ html{ scroll-behavior: smooth; }
     }
   }
 
-  // أزرار الأقسام الرئيسية والفرعية
+  // الأزرار (تبديل الأقسام)
   buttons.forEach(btn => {
     btn.addEventListener('click', () => {
       buttons.forEach(b => b.classList.remove('active'));
@@ -1666,19 +1693,43 @@ html{ scroll-behavior: smooth; }
     });
   }
 
-  // زر الرجوع لأعلى (اختياري)
-  const toTop = document.getElementById('toTop');
+  // زر الرجوع لأعلى — ظاهر دائمًا + يعمل على كل الحاويات
   if (toTop){
-    const showAt = 300;
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > showAt) toTop.classList.add('show'); else toTop.classList.remove('show');
-    });
-    toTop.addEventListener('click', () => {
-      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
+    // إجبار الظهور فوق كل شيء حتى لو وُجد CSS سابق يخفيه
+    try {
+      toTop.style.setProperty('opacity','1','important');
+      toTop.style.setProperty('pointer-events','auto','important');
+      toTop.style.setProperty('transform','translateY(0)','important');
+      toTop.style.setProperty('z-index','2147483647','important');
+    } catch(e){}
+
+    function scrollToTop(){
+      const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const behavior = prefersReduced ? 'auto' : 'smooth';
+
+      // نافذة المتصفح
+      try { window.scrollTo({ top: 0, behavior }); } catch(_) {}
+
+      // جميع الحاويات القابلة للتمرير
+      document.querySelectorAll('*').forEach(el => {
+        const s = getComputedStyle(el);
+        if ((s.overflowY === 'auto' || s.overflowY === 'scroll') && el.scrollHeight > el.clientHeight) {
+          try { el.scrollTo({ top: 0, behavior }); } catch(_) { el.scrollTop = 0; }
+        }
+      });
+
+      // fallback لأنظمة قديمة
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    }
+
+    toTop.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      scrollToTop();
     });
   }
-})();
+});
 </script>
 </body>
 </html>
