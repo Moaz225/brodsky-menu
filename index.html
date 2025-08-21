@@ -1,1436 +1,568 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>BRODSKY. - Меню</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-.hero {
-  background-color: transparent !important;
-  padding: 40px 0 20px;
-  text-align: center;
-}
-
-.logo {
-  font-size: 3rem;
-  font-weight: 800;
-  letter-spacing: 5px;
-  color: #000000;
-  font-family: 'Roboto', sans-serif;
-  margin: 0;
-}
-
-.logo .dot {
-  color: #ff7700;
-  font-size: 3rem;
-  margin-left: 3px;
-}
-
-.logo-divider {
-  height: 2px;
-  width: 180px;
-  margin: 15px auto 0;
-  background: linear-gradient(to right, transparent, #ff7700, transparent);
-  border-radius: 1px;
-}
-
-       :root {
-            --primary: #ff7700;
-            --primary-light: #ffa552;
-            --primary-dark: #e56a00;
-            --light: #ffffff;
-            --dark: #333333;
-            --gray: #f5f5f5;
-            --border: #e0e0e0;
-            --text: #444444;
-            --section-bg: #ffffff;
-
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-body {
-    font-family: 'Roboto', sans-serif;
-background:
-    linear-gradient(rgba(50, 50, 50, 0.4), rgba(50, 50, 50, 0.4)),
-    url("https://i.postimg.cc/HjGKtG6R/brosky-2-1.png") no-repeat center center;
-
-    background-size: cover;
-    background-attachment: fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    color: var(--dark);
-    line-height: 1.6;
-    min-height: 100vh;
-    overflow-x: hidden;
-    position: relative;
-}
-img, .menu-card, .meal-item{ max-width: 100%; }
-.container, .menu-card, .meal-item{ overflow-wrap: anywhere; }
-html, body { overflow-x: hidden; }
-
-
- .container {
-    max-width: 1000px;
-    width: 100%;
-    margin: 0 auto; /* لتوسيط العنصر أفقيًا */
-    padding: 0 20px;
-    box-sizing: border-box;
-}
-
-.meals-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-        /* Header Styles */
-/* Header Styles */
-header {
-    background-color: rgba(242, 242, 242, 0.7); /* رمادي شفاف */
-    color: #000000;
-    padding: 25px 0;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-}
-
-.header-overlay {
-    display: none !important;
-    background: none !important;
-}
-
-.logo {
-  font-size: 3rem;
-  font-weight: 800;
-  letter-spacing: 5px;
-  color: #000000;
-  font-family: 'Roboto', sans-serif;
-  margin: 0;
-}
-
-.logo .dot {
-  color: #ff7700;
-  font-size: 3rem;
-  margin-left: 3px;
-}
-
-        /* Navigation */
-        .categories {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            background-color: var(--light);
-            margin: 30px 0;
-            position: static;
-            top: auto;
-            z-index: 90;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
-            border-radius: 10px;
-            padding: 10px;
-            max-width: 100%;
-            margin: 30px auto;
-        }
-        .categories .divider{
-  display:inline-block;width:2px;height:28px;
-  background:rgba(0,0,0,.08);margin:6px 10px;
-}
-        .category-btn {
-            padding: 12px 20px;
-            font-size: 1rem;
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: var(--dark);
-            transition: all 0.3s ease;
-            position: relative;
-            font-weight: 500;
-            border-radius: 50px;
-            margin: 5px;
-            white-space: nowrap;
-        }
-
-        .category-btn:hover, .category-btn.active {
-            color: var(--primary);
-            background-color: rgba(255, 119, 0, 0.1);
-        }
-
-        .category-btn.active {
-            font-weight: 600;
-            background-color: var(--primary);
-            color: var(--light);
-        }
-
-        /* Menu Sections */
-        .menu-section {
-            background-color: var(--section-bg);
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 40px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            border: 1px solid rgba(255, 119, 0, 0.1);
-        }
-
-        .section-title {
-            text-align: center;
-            margin: 0 0 30px;
-            position: relative;
-            padding-bottom: 15px;
-        }
-
-        .section-title h2 {
-            font-size: 2.2rem;
-            color: var(--primary);
-            display: inline-block;
-            padding: 0 20px;
-            position: relative;
-            z-index: 2;
-            background-color: var(--section-bg);
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(to right, transparent, var(--primary), transparent);
-            z-index: 1;
-        }
-
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        .menu-card {
-            background-color: var(--light);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid rgba(255, 119, 0, 0.15);
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            position: relative;
-        }
-
-        .menu-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(255, 119, 0, 0.15);
-        }
-
-        .card-header {
-            background: linear-gradient(to right, var(--primary), var(--primary-dark));
-            color: var(--light);
-            padding: 18px 25px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .item-name {
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
-
-        .item-price {
-            background-color: var(--light);
-            color: var(--primary);
-            padding: 8px 18px;
-            border-radius: 30px;
-            font-weight: 700;
-            font-size: 1rem;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-            white-space: nowrap;
-            display: inline-block;
-            line-height: 1;
-            vertical-align: middle;
-        }
-
-        .card-body {
-            padding: 25px;
-            flex-grow: 1;
-        }
-
-        .item-description {
-            margin-bottom: 15px;
-            color: #555;
-            font-size: 0.95rem;
-            display: flex;
-            align-items: flex-start;
-        }
-
-        .ru-name {
-            font-weight: 500;
-            color: #666;
-        }
-
-        .item-details {
-            display: flex;
-            justify-content: space-between;
-            color: #777;
-            font-size: 0.9rem;
-            border-top: 1px dashed var(--border);
-            padding-top: 15px;
-            margin-top: 15px;
-        }
-
-        .item-icon {
-            color: var(--primary);
-            margin-right: 8px;
-        }
-
-        /* Footer */
-/* القاعدة العامة الآمنة */
-/* Footer (القاعدة العامة الآمنة) */
-footer{
-  width: 100%;
-  margin-left: 0;
-  margin-right: 0;
-  background: linear-gradient(to right, #222, #333);
-  color: var(--light);
-  padding: 60px 20px 40px;
-  position: relative;
-  border-top-left-radius: 80px;
-  border-top-right-radius: 80px;
-  overflow: hidden;
-}
-
-.footer-content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    position: relative;
-    z-index: 2;
-}
-
-.footer-section {
-    flex: 1;
-    min-width: 300px;
-    padding: 0 20px;
-    margin-bottom: 30px;
-}
-
-.footer-section h3 {
-    color: var(--primary);
-    margin-bottom: 20px;
-    font-size: 1.4rem;
-    position: relative;
-    padding-bottom: 10px;
-}
-
-.footer-section h3::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 50px;
-    height: 2px;
-    background-color: var(--primary);
-}
-
-        .contact-info p {
-            margin: 12px 0;
-            display: flex;
-            align-items: center;
-        }
-
-        .contact-info i {
-            margin-right: 10px;
-            color: var(--primary);
-            width: 20px;
-            text-align: center;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .social-icons a {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            text-align: center;
-            line-height: 40px;
-            color: var(--light);
-            transition: all 0.3s ease;
-        }
-
-        .social-icons a:hover {
-            background-color: var(--primary);
-            transform: translateY(-3px);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 25px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin-top: 20px;
-            color: #aaa;
-            font-size: 0.9rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .menu-section {
-            animation: fadeIn 0.6s ease-out forwards;
-        }
-
-        .menu-card {
-            animation: fadeIn 0.5s ease-out;
-            animation-fill-mode: both;
-        }
-
-        /* Delay animations for each card */
-        .menu-card:nth-child(1) { animation-delay: 0.1s; }
-        .menu-card:nth-child(2) { animation-delay: 0.2s; }
-        .menu-card:nth-child(3) { animation-delay: 0.3s; }
-        .menu-card:nth-child(4) { animation-delay: 0.4s; }
-        .menu-card:nth-child(5) { animation-delay: 0.5s; }
-        .menu-card:nth-child(6) { animation-delay: 0.6s; }
-
-
-
-        /* Search Bar */
-        .search-container {
-            max-width: 600px;
-            margin: 30px auto;
-            position: relative;
-            border-radius: 50px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            background-color: #fff;
-            border: 2px solid var(--primary);
-        }
-
-        .search-container input {
-            flex: 1;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            outline: none;
-            background: transparent;
-        }
-
-        .search-container i {
-            color: var(--primary);
-            font-size: 1.2rem;
-            margin-right: 18px;
-        }
-
-        /* Notice */
-        .price-update-notice {
-            background-color: #fff8e6;
-            border-left: 4px solid var(--primary);
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 4px;
-            font-size: 0.95rem;
-            max-width: 800px;
-            margin: 20px auto;
-            display: none; /* Hidden by default */
-        }
-
-        .logo-divider {
-            height: 2px;
-            background: linear-gradient(to right, transparent, var(--primary), transparent);
-            width: 80%;
-            max-width: 500px;
-            margin: 0 auto;
-            margin-top: 15px;
-        }
-       .meals-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 30px;
-        }
-
-        .meal-category {
-            background-color: var(--light);
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            border: 1px solid rgba(255, 119, 0, 0.15);
-        }
-
-        .meal-category { scroll-margin-top: 90px; }
-        .menu-section  { scroll-margin-top: 90px; }
-
-/* مسافة أوضح تحت عنوان الفئة */
-.meal-category-title{
-  margin-bottom: 28px;     /* كان 20px */
-  padding-bottom: 12px;    /* موجود لديك بالفعل */
-  border-bottom: 2px solid var(--primary-light);
-}
-
-/* تأمين مسافة إضافية فوق الشبكة */
-.meal-category .meal-items{
-  margin-top: 8px;         /* مسافة صغيرة فوق البطاقات */
-}
-
-/* على الشاشات الصغيرة زِد المسافة أكثر */
-@media (max-width: 768px){
-  .meal-category-title{ margin-bottom: 32px; }
-  .meal-category .meal-items{ margin-top: 12px; }
-}
-
-
-
-        .meal-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(255, 119, 0, 0.1);
-            background-color: rgba(255, 119, 0, 0.05);
-        }
-
-.meal-name-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
-    padding-bottom: 12px;
-    border-bottom: 1px dashed rgba(255, 119, 0, 0.2);
-}
-
-.meal-name {
-    flex: 1;
-    font-weight: 700;
-    font-size: 1.15rem;
-    color: var(--dark);
-    margin-right: 20px; /* تباعد إضافي */
-}
-
-.meal-price {
-    color: var(--primary);
-    font-weight: 700;
-    font-size: 1.2rem;
-    margin-left: auto;
-}
-
-        .meal-description {
-            color: var(--text);
-            font-size: 0.95rem;
-            line-height: 1.6;
-            padding-top: 10px;
-            font-style: normal;
-        }
-
-        .meal-details {
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px dashed rgba(255, 119, 0, 0.2);
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        .meal-highlight {
-            color: var(--primary);
-            font-weight: 500;
-        }
-        .meal-item .meal-name{
-  display: flex;               /* المهم */
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 20px;                   /* زِدها لو تريد مسافة أكبر */
-  margin-right: 0;             /* إلغاء القديم */
-}
-
-.meal-item .meal-price{
-  margin-left: auto;           /* يدفعه لليمين */
-  white-space: nowrap;         /* يمنع نزول السعر سطر جديد */
-  padding-left: 12px;          /* مسافة بصرية */
-}
-
-        /* تحسين التصميم للهواتف */
-        @media (max-width: 768px) {
-            .meal-items {
-                grid-template-columns: 1fr;
-            }
-
-            .meal-name-container {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .meal-price {
-                margin-top: 8px;
-                align-self: flex-end;
-            }
-        }
-/* ✅ كود الاستجابة للأجهزة الصغيرة */
-/* ✅ كود الاستجابة للأجهزة الصغيرة */
-@media (max-width: 480px){
-  .menu-grid, .meal-items{ grid-template-columns: 1fr; }
-
-  .container {
-    padding: 0 15px;
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  .categories { padding: 8px; }
-  .category-btn {
-    padding: 10px 15px;
-    font-size: 0.9rem;
-    margin: 3px;
-    flex-grow: 1;
-    text-align: center;
-  }
-
-  .card-header { padding: 14px 18px; }
-  .card-body { padding: 20px; }
-
-  .meal-items {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 16px;
-  }
-   .menu-section, .meal-category { scroll-margin-top: 90px; }
-  .meal-name-container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .meal-price {
-    margin-top: 8px;
-    align-self: flex-end;
-  }
-} /* ← لا تضيف أقواس إضافية بعد هذا السطر */
-
-@supports (-webkit-touch-callout: none) {
-    body {
-        background-attachment: initial;
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>BRODSKY. - Меню</title>
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+  <style>
+    :root{
+      --primary:#ff7700; --primary-light:#ffa552; --primary-dark:#e56a00;
+      --light:#fff; --dark:#333; --gray:#f5f5f5; --border:#e0e0e0; --text:#444;
+      --section-bg:#fff;
+      --radius-xl:20px; --radius-xxl:80px;
+      --shadow-1:0 5px 15px rgba(0,0,0,.08);
+      --shadow-2:0 8px 20px rgba(0,0,0,.06);
     }
+
+    /* Сброс + базовые настройки */
+    *{margin:0; padding:0; box-sizing:border-box}
+    html,body{height:100%; overflow-x:hidden; scroll-behavior:smooth}
+    body{
+      font-family:'Roboto',sans-serif;
+      line-height:1.6; color:var(--dark); -webkit-text-size-adjust:100%;
+      background:
+        linear-gradient(rgba(50,50,50,.4),rgba(50,50,50,.4)),
+        url("https://i.postimg.cc/HjGKtG6R/brosky-2-1.png") no-repeat center/cover;
+      background-attachment:fixed;
+      min-height:100vh;
+      position:relative;
+    }
+    @supports (-webkit-touch-callout:none){ /* iOS: отключить fixed-прикрепление */
+      body{ background-attachment:initial }
+    }
+    img{max-width:100%; height:auto; display:block}
+
+    .container{
+      width:100%;
+      max-width:1000px;
+      margin-inline:auto;
+      padding-inline:clamp(12px,3vw,20px);
+    }
+
+    /* ---------- Header ---------- */
+    header{
+      background-color:rgba(242,242,242,.72);
+      padding:clamp(18px,5vw,28px) 0;
+      position:relative;
+      box-shadow:0 4px 20px rgba(0,0,0,.05);
+      backdrop-filter:saturate(120%) blur(2px);
+      padding-top:calc(env(safe-area-inset-top,0px) + clamp(18px,5vw,28px));
+    }
+    .hero{text-align:center}
+    .logo{
+      font-size:clamp(1.8rem,6vw,3rem);
+      font-weight:800; letter-spacing:5px; color:#000; margin:0;
+    }
+    .logo .dot{ color:var(--primary); margin-left:3px }
+    .logo-divider{
+      height:2px; width:min(500px,80%); margin:12px auto 0;
+      background:linear-gradient(to right,transparent,var(--primary),transparent);
+      border-radius:1px;
+    }
+
+    /* ---------- Categories (sticky + горизонтальная прокрутка) ---------- */
+    .categories{
+      position:sticky; top:0; z-index:90;
+      background:var(--light);
+      margin:clamp(14px,3vw,24px) auto;
+      padding:8px;
+      border-radius:10px;
+      box-shadow:0 2px 15px rgba(0,0,0,.08);
+      display:flex; gap:6px; flex-wrap:nowrap;
+      overflow-x:auto; -webkit-overflow-scrolling:touch;
+      scrollbar-width:thin;
+      scrollbar-color:rgba(0,0,0,.15) transparent;
+    }
+    .categories::-webkit-scrollbar{height:8px}
+    .categories::-webkit-scrollbar-thumb{background:rgba(0,0,0,.15); border-radius:8px}
+
+    .category-btn{
+      padding:10px 14px; font-size:clamp(.92rem,2.5vw,1rem);
+      background:none; border:none; cursor:pointer; color:var(--dark);
+      transition:.25s; border-radius:999px; white-space:nowrap; flex:0 0 auto;
+      min-height:44px;  /* удобная зона тапа */
+    }
+    .category-btn:hover{ color:var(--primary); background:rgba(255,119,0,.1) }
+    .category-btn.active{ background:var(--primary); color:#fff; font-weight:600 }
+
+    .categories .divider{
+      width:2px; height:28px; background:rgba(0,0,0,.08); margin:6px 4px; flex:0 0 auto;
+    }
+
+    /* ---------- Sections & Cards ---------- */
+    .menu-section{
+      background:var(--section-bg); border:1px solid rgba(255,119,0,.1);
+      border-radius:var(--radius-xl);
+      padding:clamp(18px,3.6vw,26px);
+      margin-bottom:clamp(18px,4vw,32px);
+      box-shadow:var(--shadow-2);
+      animation:fadeIn .6s ease-out forwards;
+      display:none; /* скрываем — управляет JS */
+      scroll-margin-top:90px;
+    }
+    .menu-section.active{ display:block }
+
+    .section-title{
+      text-align:center; margin:0 0 22px; position:relative; padding-bottom:12px;
+    }
+    .section-title h2{
+      font-size:clamp(1.4rem,5.5vw,2.2rem);
+      color:var(--primary); display:inline-block; padding:0 16px; background:var(--section-bg);
+    }
+    .section-title::after{
+      content:''; position:absolute; left:0; bottom:0; width:100%; height:2px;
+      background:linear-gradient(to right,transparent,var(--primary),transparent);
+    }
+
+    .menu-grid{
+      display:grid; gap:clamp(14px,3vw,22px);
+      grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+    }
+    @media (max-width:480px){
+      .menu-grid{ grid-template-columns:1fr }
+    }
+
+    .menu-card{
+      background:var(--light); border-radius:15px; overflow:hidden;
+      box-shadow:var(--shadow-2); border:1px solid rgba(255,119,0,.15);
+      display:flex; flex-direction:column; height:100%;
+      animation:fadeIn .5s ease-out both;
+    }
+    .menu-card:hover{ transform:translateY(-6px); box-shadow:0 12px 30px rgba(255,119,0,.15) }
+    .menu-card .card-header{
+      background:linear-gradient(90deg,var(--primary),var(--primary-dark));
+      color:#fff; padding:14px 18px; display:flex; justify-content:space-between; align-items:center;
+    }
+    .item-name{ font-weight:600; font-size:1.05rem }
+    .item-price{
+      background:#fff; color:var(--primary); padding:8px 14px; border-radius:30px;
+      font-weight:700; font-size:.98rem; white-space:nowrap; line-height:1;
+      box-shadow:0 3px 8px rgba(0,0,0,.1);
+    }
+    .card-body{ padding:18px }
+
+    .item-description{ color:#555; font-size:.95rem; display:flex; align-items:flex-start }
+    .item-details{
+      display:flex; justify-content:space-between; color:#777; font-size:.9rem;
+      border-top:1px dashed var(--border); padding-top:12px; margin-top:12px;
+    }
+
+    /* ---------- Meals (Блюда) ---------- */
+    .meals-grid{ display:grid; gap:clamp(16px,3vw,24px); grid-template-columns:1fr }
+    .meal-category{
+      background:var(--light); border-radius:15px; padding:clamp(18px,3.5vw,24px);
+      box-shadow:var(--shadow-1); border:1px solid rgba(255,119,0,.15);
+      scroll-margin-top:90px;
+    }
+    .meal-category-title{
+      font-size:clamp(1.05rem,3.8vw,1.35rem); color:var(--primary);
+      margin-bottom:22px; padding-bottom:10px; border-bottom:2px solid var(--primary-light);
+    }
+    .meal-items{
+      display:grid; gap:16px;
+      grid-template-columns:repeat(auto-fill, minmax(260px,1fr));
+      margin-top:6px;
+    }
+    @media (max-width:480px){ .meal-items{ grid-template-columns:1fr } }
+
+    .meal-item{
+      background:#fff; border:1px solid rgba(255,119,0,.12); border-radius:14px;
+      padding:14px 16px; box-shadow:var(--shadow-1); transition:.25s;
+    }
+    .meal-item:hover{
+      transform:translateY(-4px);
+      box-shadow:0 8px 20px rgba(255,119,0,.12);
+      background:rgba(255,119,0,.03);
+    }
+    .meal-name{
+      display:flex; align-items:baseline; gap:14px;
+      font-weight:700; font-size:1.05rem; color:var(--dark);
+      border-bottom:1px dashed rgba(255,119,0,.22); padding-bottom:10px; margin-bottom:10px;
+    }
+    .meal-price{
+      margin-left:auto; white-space:nowrap; color:var(--primary); font-weight:700; font-size:1.12rem;
+    }
+    .meal-description{ color:var(--text); font-size:.95rem; line-height:1.55 }
+    .meal-details{
+      margin-top:12px; padding-top:12px; border-top:1px dashed rgba(255,119,0,.2);
+      font-size:.9rem; color:#666;
+    }
+
+    /* ---------- Search ---------- */
+    .search-container{
+      max-width:min(600px,100%); margin:18px auto 10px; display:flex; align-items:center;
+      background:#fff; border:2px solid var(--primary); border-radius:999px;
+      box-shadow:0 4px 12px rgba(0,0,0,.05); overflow:hidden;
+    }
+    .search-container input{
+      flex:1; padding:12px 16px; border:0; outline:0; font-size:1rem; background:transparent;
+      min-height:44px;
+    }
+    .search-container i{ color:var(--primary); font-size:1.1rem; margin-inline:14px }
+
+    /* ---------- ToTop ---------- */
+    #toTop{
+      position:fixed; right:16px; bottom:16px; width:46px; height:46px; border:0; border-radius:50%;
+      background:var(--primary); color:#fff; display:grid; place-items:center;
+      box-shadow:0 8px 20px rgba(0,0,0,.18); cursor:pointer; opacity:1; pointer-events:auto;
+      transform:translateY(0); z-index:2147483647; transition:opacity .25s, transform .25s, background .2s;
+    }
+    #toTop:hover{ background:var(--primary-dark) }
+    #toTop i{ font-size:18px; line-height:1 }
+    @media (max-width:768px){ #toTop{ right:14px; bottom:14px; width:44px; height:44px } }
+
+    /* ---------- Footer ---------- */
+    footer{
+      width:100%; margin-inline:0; color:#fff;
+      background:linear-gradient(90deg,#222,#333);
+      padding:60px clamp(14px,3vw,20px) 40px;
+      border-top-left-radius:var(--radius-xxl); border-top-right-radius:var(--radius-xxl);
+      overflow:hidden;
+    }
+    @supports (width:100dvw){
+      footer{ width:100dvw; margin-left:calc(50% - 50dvw); margin-right:calc(50% - 50dvw) }
+    }
+    @media (max-width:768px){
+      footer{ border-top-left-radius:40px; border-top-right-radius:40px }
+    }
+    .footer-content{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:18px; position:relative; z-index:2 }
+    .footer-section{ flex:1 1 300px; padding:0 8px; min-width:260px }
+    .footer-section h3{
+      color:var(--primary); margin-bottom:14px; font-size:1.2rem; position:relative; padding-bottom:8px;
+    }
+    .footer-section h3::after{
+      content:''; position:absolute; left:0; bottom:0; width:50px; height:2px; background:var(--primary);
+    }
+.social-icons{
+  display:flex;
+  gap:12px;
+  margin-top:14px;
 }
 
-/* إصلاح حقول الإدخال */
-input, textarea, select {
-    font-size: 16px;
-    transform: scale(1);
-    min-height: 44px !important;
-}
-      /* Back-to-top button */
-#toTop{
-  position: fixed;
-  right: 22px;
-  bottom: 22px;
-  width: 46px;
-  height: 46px;
-  border: 0;
-  border-radius: 50%;
-  background: var(--primary);
-  color: #fff;
-  display: grid;
-  place-items: center;
-  box-shadow: 0 8px 20px rgba(0,0,0,.18);
-  cursor: pointer;
-  opacity: 1 !important;
-  pointer-events: auto !important;
-  transform: translateY(0) !important;
-  z-index: 2147483647 !important; /* أقصى أولوية */
-  transition: opacity .25s ease, transform .25s ease, background .2s ease;
-  z-index: 9999;
-}
-#toTop:hover{ background: var(--primary-dark); }
-#toTop.show{ opacity: 1; transform: translateY(0); pointer-events: auto; }
-#toTop i{ font-size: 18px; line-height: 1; }
-
-@media (max-width: 768px){
-  #toTop{ right: 14px; bottom: 14px; width: 44px; height: 44px; }
+.social-icons a{
+  width:40px;
+  height:40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:transparent;
+  border:2px solid rgba(255,255,255,.25);
+  color:#fff;
+  transition: background .25s, border-color .25s, transform .25s;
+  text-decoration: none;                 /* ← يزيل الخط الأبيض */
 }
 
-
-/* تمرير سلس عام (اختياري) */
-html{ scroll-behavior: smooth; }
-        /* امتداد كامل على الأجهزة الحديثة بدون overflow */
-@supports (width: 100dvw){
-  footer{
-    width: 100dvw;
-    margin-left: calc(50% - 50dvw);
-    margin-right: calc(50% - 50dvw);
-  }
+.social-icons a:hover,
+.social-icons a:focus,
+.social-icons a:active,
+.social-icons a:visited{
+  text-decoration: none;                 /* تأكيد الإلغاء في كل الحالات */
 }
 
-/* ضمان عدم الميل على الموبايل */
-@media (max-width: 768px){
-  footer{
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-    border-top-left-radius: 40px;   /* اختياري */
-    border-top-right-radius: 40px;  /* اختياري */
-  }
+.social-icons a:hover{
+  background:var(--primary);
+  border-color:var(--primary);
+  transform:translateY(-3px);
 }
 
-    </style>
+.social-icons a:focus-visible{
+  outline:2px solid #fff;
+  outline-offset:2px;
+}
+
+.social-icons i{
+  font-size:18px;
+  line-height:1;
+}
+
+    .social-icons a:hover{ background:var(--primary); transform:translateY(-3px) }
+    .copyright{
+      text-align:center; padding-top:20px; border-top:1px solid rgba(255,255,255,.1); margin-top:16px; color:#aaa; font-size:.92rem;
+    }
+
+    /* ---------- Animations ---------- */
+    @keyframes fadeIn{ from{opacity:0; transform:translateY(16px)} to{opacity:1; transform:translateY(0)} }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-<header>
-  <div class="hero">
-    <h1 class="logo">BRODSKY<span class="dot">.</span></h1>
-    <div class="logo-divider"></div>
-  </div> <!-- هذا الإغلاق مفقود هنا -->
-</header>
-    <!-- Navigation -->
-    <div class="container">
-        <div class="search-container">
-            <input type="text" id="searchInput" placeholder="Поиск напитков...">
-            <i class="fas fa-search"></i>
-        </div>
-
-
-<div class="categories">
-  <!-- الأقسام الرئيسية -->
-  <button class="category-btn active" data-target="coffee">Кофе</button>
-  <button class="category-btn" data-target="seasonal">Сезонные напитки</button>
-  <button class="category-btn" data-target="tea">Чай</button>
-  <button class="category-btn" data-target="cocoa">Какао</button>
-  <button class="category-btn" data-target="fresh">Свежие соки</button>
-  <button class="category-btn" data-target="meals">Блюда</button>
-
-  <!-- فاصل بصري (اختياري) -->
-  <span class="divider"></span>
-
-  <!-- الفئات الفرعية داخل «Блюда» -->
-  <button class="category-btn" data-target="meals-desserts">Десерты</button>
-  <button class="category-btn" data-target="meals-soups">Супы</button>
-  <button class="category-btn" data-target="meals-pancakes">Блины</button>
-  <button class="category-btn" data-target="meals-curd">Творог и сырники</button>
-  <button class="category-btn" data-target="meals-breakfasts">Завтраки до 14:00</button>
-  <button class="category-btn" data-target="meals-toasts">Тосты и хлеб</button>
-  <button class="category-btn" data-target="meals-salads">Салаты</button>
-  <button class="category-btn" data-target="meals-pasta">Паста</button>
-  <button class="category-btn" data-target="meals-pizza">Пицца</button>
-</div>
-
-
-    <div class="container">
-        <!-- Coffee Section -->
-        <section id="coffee" class="menu-section">
-            <div class="section-title">
-                <h2>Кофе</h2>
-            </div>
-
-            <div class="menu-grid">
-                <!-- Black Coffee -->
-                <div class="menu-card">
-                    <div class="card-header">
-                        <span class="item-name">Эспрессо</span>
-                        <span class="item-price">200₽</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="item-description">
-                            <span class="ru-name">Эспрессо — 40 мл</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu-card">
-                    <div class="card-header">
-                        <span class="item-name">Американо</span>
-                        <span class="item-price">200₽</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="item-description">
-                            <span class="ru-name">Американо — 200 мл</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu-card">
-                    <div class="card-header">
-                        <span class="item-name">Фильтр-кофе</span>
-                        <span class="item-price">250₽</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="item-description">
-                            <span class="ru-name">Фильтр-кофе — 250 мл</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu-card">
-                    <div class="card-header">
-                        <span class="item-name">Харио V60</span>
-                        <span class="item-price">280₽</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="item-description">
-                            <span class="ru-name">Харио V60 — 250 мл</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Coffee with Milk -->
-                <div class="menu-card">
-                    <div class="card-header">
-                        <span class="item-name">Капучино</span>
-                        <span class="item-price">230/260₽</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="item-description">
-                            <span class="ru-name">Капучино — 200/300 мл</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu-card">
-                    <div class="card-header">
-                        <span class="item-name">Латте</span>
-                        <span class="item-price">260₽</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="item-description">
-                            <span class="ru-name">Латте — 300 мл</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu-card">
-                    <div class="card-header">
-                        <span class="item-name">Флэт уайт</span>
-                        <span class="item-price">260₽</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="item-description">
-                            <span class="ru-name">Флэт уайт — 200 мл</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu-card">
-                    <div class="card-header">
-                        <span class="item-name">Раф</span>
-                        <span class="item-price">300₽</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="item-description">
-                            <span class="ru-name">Раф цитрус/ваниль — 300 мл</span>
-                        </div>
-                    </div>
-                </div>
-                                <div class="menu-card">
-                    <div class="card-header">
-                        <span class="item-name">Маття</span>
-                        <span class="item-price">300₽</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="item-description">
-                            <span class="ru-name">Маття — 300 мл</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="menu-card">
-                    <div class="card-header">
-                        <span class="item-name">Растительное молоко</span>
-                        <span class="item-price">90₽</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="item-description">
-                            <span class="ru-name">Растительное молоко: кокосовое/миндальное/фундучное — +90₽</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Seasonal Drinks Section -->
-        <section id="seasonal" class="menu-section" style="display:none;">
-            <div class="section-title">
-                <h2>Сезонные напитки</h2>
-            </div>
-
-            <div class="menu-grid">
-                <div class="menu-card">
-                    <div class="card-header">
-                        <span class="item-name">Айс капучино</span>
-                        <span class="item-price">260₽</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="item-description">
-                            <span class="ru-name">Айс капучино — 300 мл</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu-card">
-                    <div class="card-header">
-                        <span class="item-name">Айс латте</span>
-                        <span class="item-price">260₽</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="item-description">
-                            <span class="ru-name">Айс латте — 300 мл</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu-card">
-                    <div class="card-header">
-                        <span class="item-name">Айс какао</span>
-                        <span class="item-price">300₽</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="item-description">
-                            <span class="ru-name">Айс какао — 300 мл</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu-card">
-                    <div class="card-header">
-                        <span class="item-name">Айс маття</span>
-                        <span class="item-price">300₽</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="item-description">
-                            <span class="ru-name">Айс маття — 300 мл</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu-card">
-                    <div class="card-header">
-                        <span class="item-name">Айс ти</span>
-                        <span class="item-price">260₽</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="item-description">
-                            <span class="ru-name">Айс ти — 300 мл</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu-card">
-                    <div class="card-header">
-                        <span class="item-name">Эспрессо-тоник</span>
-                        <span class="item-price">350₽</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="item-description">
-                            <span class="ru-name">Эспрессо-тоник — 300 мл</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu-card">
-                    <div class="card-header">
-                        <span class="item-name">Бамбл</span>
-                        <span class="item-price">350₽</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="item-description">
-                            <span class="ru-name">Бамбл — 300 мл</span>
-                        </div>
-                        <p>(Вкусы: апельсин – гранат – вишня)</p>
-                    </div>
-                </div>
-
-                <div class="menu-card">
-                    <div class="card-header">
-                        <span class="item-name">Тропическая матча</span>
-                        <span class="item-price">330₽</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="item-description">
-                            <span class="ru-name">Тропическая матча — 300 мл</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu-card">
-                    <div class="card-header">
-                        <span class="item-name">Кофейная содовая</span>
-                        <span class="item-price">300₽</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="item-description">
-                            <span class="ru-name">Кофейная содовая — 300 мл</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu-card">
-                    <div class="card-header">
-                        <span class="item-name">Лимонад</span>
-                        <span class="item-price">290₽</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="item-description">
-                            <span class="ru-name">Лимонад — 300 мл</span>
-                        </div>
-                        <p>(Вкусы: смородиновый – малина-базилик – облепиха-маракуйа)</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Tea Section -->
-        <section id="tea" class="menu-section" style="display:none;">
-            <div class="section-title">
-                <h2>Чай</h2>
-            </div>
-
-            <div class="menu-grid">
-                <div class="menu-card">
-                    <div class="card-header">
-                        <span class="item-name">Черный чай</span>
-                        <span class="item-price">300₽</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="item-description">
-                            <span class="ru-name">Черный — 500 мл</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu-card">
-                    <div class="card-header">
-                        <span class="item-name">Зеленый чай</span>
-                        <span class="item-price">300₽</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="item-description">
-                            <span class="ru-name">Зеленый — 500 мл</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu-card">
-                    <div class="card-header">
-                        <span class="item-name">Улун</span>
-                        <span class="item-price">300₽</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="item-description">
-                            <span class="ru-name">Улун — 500 мл</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu-card">
-                    <div class="card-header">
-                        <span class="item-name">Иван-чай</span>
-                        <span class="item-price">300₽</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="item-description">
-                            <span class="ru-name">Иван-чай — 500 мл</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu-card">
-                    <div class="card-header">
-                        <span class="item-name">Гречишный чай</span>
-                        <span class="item-price">300₽</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="item-description">
-                            <span class="ru-name">Гречишный — 500 мл</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Cocoa Section -->
-        <section id="cocoa" class="menu-section" style="display:none;">
-            <div class="section-title">
-                <h2>Какао</h2>
-            </div>
-
-            <div class="menu-grid">
-                <div class="menu-card">
-                    <div class="card-header">
-                        <span class="item-name">Какао c зефирками</span>
-                        <span class="item-price">270₽</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="item-description">
-                            <span class="ru-name">Какао c зефирками — 300 мл</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu-card">
-                    <div class="card-header">
-                        <span class="item-name">Specialty «UNICAVA»</span>
-                        <span class="item-price">300₽</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="item-description">
-                            <span class="ru-name">Specialty «UNICAVA» — 200 мл</span>
-                        </div>
-                    </div>
-                </div>
-                                <div class="menu-card">
-                    <div class="card-header">
-                        <span class="item-name">Горячий шоколад</span>
-                        <span class="item-price">270₽</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="item-description">
-                            <span class="ru-name">Горячий шоколад — 200 мл</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Fresh Section -->
-        <section id="fresh" class="menu-section" style="display:none;">
-            <div class="section-title">
-                <h2>Свежие соки</h2>
-            </div>
-
-            <div class="menu-grid">
-                <div class="menu-card">
-                    <div class="card-header">
-                        <span class="item-name">Апельсиновый сок</span>
-                        <span class="item-price">350₽</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="item-description">
-                            <span class="ru-name">Апельсиновый — 300 мл</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu-card">
-                    <div class="card-header">
-                        <span class="item-name">Грейпфрутовый сок</span>
-                        <span class="item-price">350₽</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="item-description">
-                            <span class="ru-name">Грейпфрутовый — 300 мл</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-
-        <!-- Meals Section -->
-   <!-- قسم الوجبات المعدل -->
-    <section id="meals" class="menu-section">
-        <div class="section-title">
-            <h2>Блюда</h2>
-        </div>
-
-        <div class="container">
-            <div class="meals-grid">
-                <div class="meal-category">
-                    <div class="meal-category" id="meals-breakfasts">… 🍳 Завтраки до 14:00 …</div>
-                    <div class="meal-items">
-                        <div class="meal-item">
-                            <div class="meal-name">Рисовая каша<span class="meal-price">170₽</span></div>
-                            <div class="meal-description"> Приготовим кашу на альтернативном молоке: кокосовое/миндальное/фундучное  +90₽ </div>
-
-                        </div>
-                        <div class="meal-item">
-                            <div class="meal-name">Овсяная каша<span class="meal-price">170₽</span></div>
-                            <div class="meal-description">Приготовим кашу на альтернативном молоке: кокосовое/миндальное/фундучное  +90₽</div>
-
-                        </div>
-                        <div class="meal-item">
-                            <div class="meal-name">Гречневая с пармезаном<span class="meal-price">260₽</span></div>
-                        </div>
-                        <div class="meal-item">
-                            <div class="meal-name">Рисовая каша с манго<span class="meal-price">260₽</span></div>
-                            <div class="meal-description">Готовим на кокосовом молоке</div>
-                        </div>
-                        <div class="meal-item">
-                            <div class="meal-name">Сырники со сметаной<span class="meal-price">270₽</span></div>
-                            <div class="meal-description">Добавь варенье, сгущенку или соленую карамель +80₽</div>
-                        </div>
-                        <div class="meal-item">
-                            <div class="meal-name">Сырники<span class="meal-price">300₽</span></div>
-                            <div class="meal-description">с манговым курдом и крем-сыром</div>
-                        </div>
-                        <div class="meal-item">
-                            <div class="meal-name">Творожная запеканка<span class="meal-price">370₽</span></div>
-                            <div class="meal-description"> с мороженым и Ягодный соус</div>
-                        </div>
-                        <div class="meal-item">
-                            <div class="meal-name">Блины<span class="meal-price">300₽</span></div>
-                            <div class="meal-description">С курицей и грибами</div>
-                        </div>
-                        <div class="meal-item">
-                            <div class="meal-name">Блины<span class="meal-price">350₽</span></div>
-                            <div class="meal-description">С форелью и авокадо-кремом</div>
-                        </div>
-                        <div class="meal-item">
-                            <div class="meal-name">Блины<span class="meal-price">250₽</span></div>
-                            <div class="meal-description">С креветками в свит чили</div>
-                        </div>
-                        <div class="meal-item">
-                            <div class="meal-name">Блины<span class="meal-price">250₽</span></div>
-                            <div class="meal-description">С форелью слабосоленой</div>
-                        </div>
-                        <div class="meal-item">
-                            <div class="meal-name">Блины<span class="meal-price">250₽</span></div>
-                            <div class="meal-description">Со сметаной и вареньем: Малина, черника, смородина, ягодный соус</div>
-                        </div>
-                        <div class="meal-item">
-                            <div class="meal-name">Самый сытный завтрак<span class="meal-price">450₽</span></div>
-                            <div class="meal-description">Австрийская колбаска, бекон, картофель беби, яйцо всмятку, маринованные огурцы, соус трюфельный ранч, чиабатта, салат</div>
-                        </div>
-                        <div class="meal-item">
-                            <div class="meal-name">Английский завтрак<span class="meal-price">330₽</span></div>
-                            <div class="meal-description">Микс салата, овощи, глазунья, колбаска австрийская, фасоль в томатном соусе, чиабатта</div>
-                        </div>
-                        <div class="meal-item">
-                            <div class="meal-name">Завтрак конструктор<span class="meal-price">220₽</span></div>
-                            <div class="meal-description">Нежный скрембл, омлет, пашот или глазунья + микс салата и чиабатта</div>
-                        </div>
-                        <div class="meal-item">
-                            <div class="meal-name">Омлет четыре сыра<span class="meal-price">300₽</span></div>
-                            <div class="meal-description">Сыр чеддер, моцарелла, крем-сыр, пармезан, микс салата, овощи, чиабатта</div>
-                        </div>
-                        <div class="meal-item">
-                            <div class="meal-name">Бенедикт с форелью <span class="meal-price">490₽</span></div>
-                             <div class="meal-description">бриошь, крем-сыр, форель, авокадо, яйцо пашот, микс салата, сырный соус</div>
-                        </div>
-                        <div class="meal-item">
-                            <div class="meal-name">Бенедикт с  креветками<span class="meal-price">490₽</span></div>
-                             <div class="meal-description">бриошь, крем-сыр, креветки, авокадо, яйцо пашот, микс салата, сырный соус</div>
-                        </div>
-                        <div class="meal-item">
-                        <div class="meal-name">Завтрак конструктор<span class="meal-price">220₽</span></div>
-                        <div class="meal-description" style="color: #ff7700; font-weight: 500;">Нежный скрембл, пушистый омлет, модный пашот или привычная глазунья из двух яиц. Подаем с миксом салата и чиабаттой.</div>
-                            <div class="meal-description">
-                               <strong>Добавки:</strong><br>
-                                 Курица/Бекон — 120₽<br>
-                                 Авокадо — 120₽<br>
-                                 Креветки в свит чили — 150₽<br>
-                                 Форель слабосоленая — 250₽<br>
-                                 Колбаска австрийская — 120₽<br>
-                                 Чиабатта — 60₽<br>
-                                Сливочное масло — 70₽<br>
-                                 Яйцо в любом виде — 60₽<br>
-                                Фасоль в томатном соусе — 80₽
-                            </div>
-                          </div>
-                       <div class="meal-item">
-                    <div class="meal-name">Напитки к завтраку<span class="meal-price">150₽</span></div>
-                <div class="meal-description">
-                   Фильтр-кофе<br>
-                   Американо<br>
-                   Капучино<br>
-                   Латте<br>
-                   Флэт уайт<br>
-                   Какао<br>
-                   Чай
-                        </div>
-                    </div>
-                   </div>
-                </div>
-
-                <!-- Cottage Cheese and Cheesecakes -->
-                <div class="meal-category">
-                    <div class="meal-category" id="meals-curd">… 🧀 Творог и сырники …</div>
-                    <div class="meal-items">
-                        <div class="meal-item">
-                            <div class="meal-name">Творожная запеканка<span class="meal-price">370₽</span></div>
-                            <div class="meal-description"> с мороженым и Ягодный соус</div>
-                        </div>
-                        <div class="meal-item">
-                            <div class="meal-name">Сырники со сметаной<span class="meal-price">270₽</span></div>
-                            <div class="meal-description">Добавь варенье, сгущенку или соленую карамель +80₽</div>
-                        </div>
-                        <div class="meal-item">
-                            <div class="meal-name">Сырники<span class="meal-price">300₽</span></div>
-                            <div class="meal-description">с манговым курдом и крем-сыром</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Pancakes -->
-                <div class="meal-category">
-                    <div class="meal-category" id="meals-pancakes">… 🥞 Блины …</div>
-                    <div class="meal-items">
-                        <div class="meal-item">
-                            <div class="meal-name">Блины<span class="meal-price">300₽</span></div>
-                            <div class="meal-description">С курицей и грибами</div>
-                        </div>
-                        <div class="meal-item">
-                            <div class="meal-name">Блины<span class="meal-price">350₽</span></div>
-                            <div class="meal-description">С форелью и авокадо-кремом</div>
-                        </div>
-                        <div class="meal-item">
-                            <div class="meal-name">Блины<span class="meal-price">250₽</span></div>
-                            <div class="meal-description">С креветками в свит чили</div>
-                        </div>
-                        <div class="meal-item">
-                            <div class="meal-name">Блины<span class="meal-price">250₽</span></div>
-                            <div class="meal-description">С форелью слабосоленой</div>
-                        </div>
-                        <div class="meal-item">
-                            <div class="meal-name">Блины<span class="meal-price">250₽</span></div>
-                            <div class="meal-description">Со сметаной и вареньем: Малина, черника, смородина, ягодный соус</div>
-                        </div>
-                    </div>
-                </div>
-
-<!-- Toasts and Bread -->
-<div class="meal-category">
-    <div class="meal-category" id="meals-toasts">… 🍞 Тосты и хлеб …</div>
-    <div class="meal-items">
-
-        <div class="meal-item">
-            <div class="meal-name">Бенедикт с форелью <span class="meal-price">490₽</span></div>
-            <div class="meal-description">бриошь, крем-сыр, форель, авокадо, яйцо пашот, микс салата, сырный соус</div>
-        </div>
-
-        <div class="meal-item">
-            <div class="meal-name">Бенедикт с креветками <span class="meal-price">490₽</span></div>
-            <div class="meal-description">бриошь, крем-сыр, креветки, авокадо, яйцо пашот, микс салата, сырный соус</div>
-        </div>
-
-        <div class="meal-item">
-            <div class="meal-name">🌭 Ход-дог «Нью-Йорк» <span class="meal-price">270₽</span></div>
-            <div class="meal-description">Соус чипотл, колбаска австрийская, лук фри, огурцы маринованные, лук карамельный</div>
-        </div>
-
-        <div class="meal-item">
-            <div class="meal-name">🍞 Тост с креветками <span class="meal-price">350₽</span></div>
-            <div class="meal-description">Чиабатта, крем-сыр, микс салата, яйцо пашот, соус голландский, креветки</div>
-        </div>
-
-        <div class="meal-item">
-            <div class="meal-name">🍞 Тост с форелью <span class="meal-price">430₽</span></div>
-            <div class="meal-description">Чиабатта, авокадо-крем, слабосоленая форель, свежий огурец</div>
-        </div>
-
-        <div class="meal-item">
-            <div class="meal-name">🥪 Клаб-сендвич <span class="meal-price">370₽</span></div>
-            <div class="meal-description">Чиабатта, чеддер, микс салата, курица BBQ, томаты вяленые, соус сырный чили</div>
-        </div>
-
+  <!-- Header -->
+  <header>
+    <div class="hero">
+      <h1 class="logo">BRODSKY<span class="dot">.</span></h1>
+      <div class="logo-divider"></div>
     </div>
-</div>
+  </header>
 
+  <!-- Categories + Search -->
+  <div class="container">
+    <div class="search-container">
+      <!-- RU-комментарии в коде по просьбе: поле поиска -->
+      <input type="search" id="searchInput" placeholder="Поиск напитков и блюд…">
+      <i class="fas fa-search" aria-hidden="true"></i>
+    </div>
+  </div>
 
-                <!-- Salads -->
-                <div class="meal-category">
-                    <div class="meal-category" id="meals-salads">… 🥗 Салаты …</div>
-                    <div class="meal-items">
-                        <div class="meal-item">
-                            <div class="meal-name">🥗 Цезарь с курицей<span class="meal-price">350₽</span></div>
-                            <div class="meal-description">Микс салата, жареная курица, сухарики, томаты черри, яйцо, пармезан, соус цезарь</div>
-                        </div>
-                        <div class="meal-item">
-                            <div class="meal-name">🥗 Цезарь с креветками<span class="meal-price">390₽</span></div>
-                            <div class="meal-description">Микс салата, креветки, сухарики, томаты черри, яйцо, пармезан, соус цезарь</div>
-                        </div>
-                    </div>
-                </div>
+  <div class="categories">
+    <!-- Главные разделы -->
+    <button class="category-btn active" data-target="coffee">Кофе</button>
+    <button class="category-btn" data-target="seasonal">Сезонные напитки</button>
+    <button class="category-btn" data-target="tea">Чай</button>
+    <button class="category-btn" data-target="cocoa">Какао</button>
+    <button class="category-btn" data-target="fresh">Свежие соки</button>
+    <button class="category-btn" data-target="meals">Блюда</button>
 
-<!-- Pasta -->
-                <div class="meal-category">
-                    <div class="meal-category" id="meals-pasta">… 🍝 Паста …</div>
-                    <div class="meal-items">
-                        <div class="meal-item">
-                            <div class="meal-name">паста с креветками<span class="meal-price">410₽</span></div>
-                            <div class="meal-description">чини, креветки, шпинат, чеснок, сливочный соус, пармезан</div>
-                        </div>
-                        <div class="meal-item">
-                            <div class="meal-name">Фетучини с курицей<span class="meal-price">370₽</span></div>
-                            <div class="meal-description">Курица, грибы, сливочный соус, пармезан</div>
-                        </div>
-                        <div class="meal-item">
-                            <div class="meal-name">Фетучини с беконом<span class="meal-price">410₽</span></div>
-                            <div class="meal-description">Бекон, грибы, томаты черри, соус песто, сливочный соус, яйцо пашот, пармезан</div>
-                        </div>
-                        <div class="meal-item">
-                            <div class="meal-name">Томатная паста <span class="meal-price">370₽</span></div>
-                            <div class="meal-description">Томатный соус, томаты черри, печёный перец, сливочная страчателла, соус песто</div>
-                        </div>
-                    </div>
-                </div>
+    <span class="divider" aria-hidden="true"></span>
 
+    <!-- Подразделы «Блюда» -->
+    <button class="category-btn" data-target="meals-breakfasts">Завтраки до 14:00</button>
+    <button class="category-btn" data-target="meals-soups">Супы</button>
+    <button class="category-btn" data-target="meals-pancakes">Блины</button>
+    <button class="category-btn" data-target="meals-curd">Творог и сырники</button>
+    <button class="category-btn" data-target="meals-toasts">Тосты и хлеб</button>
+    <button class="category-btn" data-target="meals-salads">Салаты</button>
+    <button class="category-btn" data-target="meals-pasta">Паста</button>
+    <button class="category-btn" data-target="meals-pizza">Пицца</button>
+    <button class="category-btn" data-target="meals-desserts">Десерты</button>
+  </div>
 
-               <!-- Pizza -->
-                <div class="meal-category">
-                    <div class="meal-category" id="meals-pizza">… 🍕 Пицца …</div>
-                    <div class="meal-items">
-                        <div class="meal-item">
-                            <div class="meal-name">🍕 Маргарита 360 г<span class="meal-price">439₽</span></div>
-                            <div class="meal-description">Римское тесто, моцарелла, томаты черри, песто, томатный соус, пармезан</div>
-                        </div>
-                        <div class="meal-item">
-                            <div class="meal-name">🍕 Мясная 380 г<span class="meal-price">439₽</span></div>
-                            <div class="meal-description">Римское тесто, моцарелла, томаты черри, пепперони, курица, бекон</div>
-                        </div>
-                        <div class="meal-item">
-                            <div class="meal-name">🍕 Пепперони 360 г<span class="meal-price">339₽</span></div>
-                            <div class="meal-description">Римское тесто, моцарелла, томатный соус, пепперони</div>
-                        </div>
-                        <div class="meal-item">
-                            <div class="meal-name">🍕 Сырная 350 г<span class="meal-price">469₽</span></div>
-                            <div class="meal-description">Римское тесто, белый соус, моцарелла, чеддер, пармезан, дор блю
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  <div class="container">
+    <!-- ===== Кофе ===== -->
+    <section id="coffee" class="menu-section active">
+      <div class="section-title"><h2>Кофе</h2></div>
+      <div class="menu-grid">
+        <div class="menu-card">
+          <div class="card-header"><span class="item-name">Эспрессо</span><span class="item-price">200₽</span></div>
+          <div class="card-body"><div class="item-description"><span class="ru-name">Эспрессо — 40 мл</span></div></div>
+        </div>
+        <div class="menu-card">
+          <div class="card-header"><span class="item-name">Американо</span><span class="item-price">200₽</span></div>
+          <div class="card-body"><div class="item-description"><span class="ru-name">Американо — 200 мл</span></div></div>
+        </div>
+        <div class="menu-card">
+          <div class="card-header"><span class="item-name">Фильтр-кофе</span><span class="item-price">250₽</span></div>
+          <div class="card-body"><div class="item-description"><span class="ru-name">Фильтр-кофе — 250 мл</span></div></div>
+        </div>
+        <div class="menu-card">
+          <div class="card-header"><span class="item-name">Харио V60</span><span class="item-price">280₽</span></div>
+          <div class="card-body"><div class="item-description"><span class="ru-name">Харио V60 — 250 мл</span></div></div>
+        </div>
+        <div class="menu-card">
+          <div class="card-header"><span class="item-name">Капучино</span><span class="item-price">230/260₽</span></div>
+          <div class="card-body"><div class="item-description"><span class="ru-name">Капучино — 200/300 мл</span></div></div>
+        </div>
+        <div class="menu-card">
+          <div class="card-header"><span class="item-name">Латте</span><span class="item-price">260₽</span></div>
+          <div class="card-body"><div class="item-description"><span class="ru-name">Латте — 300 мл</span></div></div>
+        </div>
+        <div class="menu-card">
+          <div class="card-header"><span class="item-name">Флэт уайт</span><span class="item-price">260₽</span></div>
+          <div class="card-body"><div class="item-description"><span class="ru-name">Флэт уайт — 200 мл</span></div></div>
+        </div>
+        <div class="menu-card">
+          <div class="card-header"><span class="item-name">Раф</span><span class="item-price">300₽</span></div>
+          <div class="card-body"><div class="item-description"><span class="ru-name">Раф цитрус/ваниль — 300 мл</span></div></div>
+        </div>
+        <div class="menu-card">
+          <div class="card-header"><span class="item-name">Маття</span><span class="item-price">300₽</span></div>
+          <div class="card-body"><div class="item-description"><span class="ru-name">Маття — 300 мл</span></div></div>
+        </div>
+        <div class="menu-card">
+          <div class="card-header"><span class="item-name">Растительное молоко</span><span class="item-price">90₽</span></div>
+          <div class="card-body"><div class="item-description"><span class="ru-name">Кокос/миндаль/фундук — +90₽</span></div></div>
+        </div>
+      </div>
+    </section>
 
-                <div class="meal-category">
-                    <div class="meal-category" id="meals-soups">… 🍲 Супы …</div>
-                    <div class="meal-items">
-                        <div class="meal-item">
-                            <div class="meal-name">Сырный крем суп<span class="meal-price">370₽</span></div>
-                            <div class="meal-description">Овощной бульон, сливочный сыр, сухари</div>
-                        </div>
-                        <div class="meal-item">
-                            <div class="meal-name">Тыквенный крем суп<span class="meal-price">330₽</span></div>
-                            <div class="meal-description">Тыква, лук, кокосовое молоко</div>
-                        </div>
-                        <div class="meal-item">
-                            <div class="meal-name">Грибной крем суп<span class="meal-price">350₽</span></div>
-                            <div class="meal-description">Шампиньоны, лук, сливки, сухари</div>
-                        </div>
-                    </div>
-                </div>
+    <!-- ===== Сезонные напитки ===== -->
+    <section id="seasonal" class="menu-section">
+      <div class="section-title"><h2>Сезонные напитки</h2></div>
+      <div class="menu-grid">
+        <div class="menu-card"><div class="card-header"><span class="item-name">Айс капучино</span><span class="item-price">260₽</span></div><div class="card-body"><div class="item-description"><span class="ru-name">300 мл</span></div></div></div>
+        <div class="menu-card"><div class="card-header"><span class="item-name">Айс латте</span><span class="item-price">260₽</span></div><div class="card-body"><div class="item-description"><span class="ru-name">300 мл</span></div></div></div>
+        <div class="menu-card"><div class="card-header"><span class="item-name">Айс какао</span><span class="item-price">300₽</span></div><div class="card-body"><div class="item-description"><span class="ru-name">300 мл</span></div></div></div>
+        <div class="menu-card"><div class="card-header"><span class="item-name">Айс маття</span><span class="item-price">300₽</span></div><div class="card-body"><div class="item-description"><span class="ru-name">300 мл</span></div></div></div>
+        <div class="menu-card"><div class="card-header"><span class="item-name">Айс ти</span><span class="item-price">260₽</span></div><div class="card-body"><div class="item-description"><span class="ru-name">300 мл</span></div></div></div>
+        <div class="menu-card"><div class="card-header"><span class="item-name">Эспрессо-тоник</span><span class="item-price">350₽</span></div><div class="card-body"><div class="item-description"><span class="ru-name">300 мл</span></div></div></div>
+        <div class="menu-card"><div class="card-header"><span class="item-name">Бамбл</span><span class="item-price">350₽</span></div><div class="card-body"><div class="item-description"><span class="ru-name">300 мл</span></div><p>(апельсин / гранат / вишня)</p></div></div>
+        <div class="menu-card"><div class="card-header"><span class="item-name">Тропическая матча</span><span class="item-price">330₽</span></div><div class="card-body"><div class="item-description"><span class="ru-name">300 мл</span></div></div></div>
+        <div class="menu-card"><div class="card-header"><span class="item-name">Кофейная содовая</span><span class="item-price">300₽</span></div><div class="card-body"><div class="item-description"><span class="ru-name">300 мл</span></div></div></div>
+        <div class="menu-card"><div class="card-header"><span class="item-name">Лимонад</span><span class="item-price">290₽</span></div><div class="card-body"><div class="item-description"><span class="ru-name">300 мл</span></div><p>(смородина / малина-базилик / облепиха-маракуйя)</p></div></div>
+      </div>
+    </section>
+
+    <!-- ===== Чай ===== -->
+    <section id="tea" class="menu-section">
+      <div class="section-title"><h2>Чай</h2></div>
+      <div class="menu-grid">
+        <div class="menu-card"><div class="card-header"><span class="item-name">Черный чай</span><span class="item-price">300₽</span></div><div class="card-body"><div class="item-description"><span class="ru-name">500 мл</span></div></div></div>
+        <div class="menu-card"><div class="card-header"><span class="item-name">Зеленый чай</span><span class="item-price">300₽</span></div><div class="card-body"><div class="item-description"><span class="ru-name">500 мл</span></div></div></div>
+        <div class="menu-card"><div class="card-header"><span class="item-name">Улун</span><span class="item-price">300₽</span></div><div class="card-body"><div class="item-description"><span class="ru-name">500 мл</span></div></div></div>
+        <div class="menu-card"><div class="card-header"><span class="item-name">Иван-чай</span><span class="item-price">300₽</span></div><div class="card-body"><div class="item-description"><span class="ru-name">500 мл</span></div></div></div>
+        <div class="menu-card"><div class="card-header"><span class="item-name">Гречишный чай</span><span class="item-price">300₽</span></div><div class="card-body"><div class="item-description"><span class="ru-name">500 мл</span></div></div></div>
+      </div>
+    </section>
+
+    <!-- ===== Какао ===== -->
+    <section id="cocoa" class="menu-section">
+      <div class="section-title"><h2>Какао</h2></div>
+      <div class="menu-grid">
+        <div class="menu-card"><div class="card-header"><span class="item-name">Какао c зефирками</span><span class="item-price">270₽</span></div><div class="card-body"><div class="item-description"><span class="ru-name">300 мл</span></div></div></div>
+        <div class="menu-card"><div class="card-header"><span class="item-name">Specialty «UNICAVA»</span><span class="item-price">300₽</span></div><div class="card-body"><div class="item-description"><span class="ru-name">200 мл</span></div></div></div>
+        <div class="menu-card"><div class="card-header"><span class="item-name">Горячий шоколад</span><span class="item-price">270₽</span></div><div class="card-body"><div class="item-description"><span class="ru-name">200 мл</span></div></div></div>
+      </div>
+    </section>
+
+    <!-- ===== Свежие соки ===== -->
+    <section id="fresh" class="menu-section">
+      <div class="section-title"><h2>Свежие соки</h2></div>
+      <div class="menu-grid">
+        <div class="menu-card"><div class="card-header"><span class="item-name">Апельсиновый сок</span><span class="item-price">350₽</span></div><div class="card-body"><div class="item-description"><span class="ru-name">300 мл</span></div></div></div>
+        <div class="menu-card"><div class="card-header"><span class="item-name">Грейпфрутовый сок</span><span class="item-price">350₽</span></div><div class="card-body"><div class="item-description"><span class="ru-name">300 мл</span></div></div></div>
+      </div>
+    </section>
+
+    <!-- ===== Блюда ===== -->
+    <section id="meals" class="menu-section">
+      <div class="section-title"><h2>Блюда</h2></div>
+
+      <div class="meals-grid">
+        <!-- Завтраки -->
+        <div class="meal-category" id="meals-breakfasts">
+          <div class="meal-category-title">🍳 Завтраки до 14:00</div>
+          <div class="meal-items">
+            <div class="meal-item"><div class="meal-name">Рисовая каша<span class="meal-price">170₽</span></div><div class="meal-description">Альтернативное молоко: кокос/миндаль/фундук +90₽</div></div>
+            <div class="meal-item"><div class="meal-name">Овсяная каша<span class="meal-price">170₽</span></div><div class="meal-description">Альтернативное молоко: кокос/миндаль/фундук +90₽</div></div>
+            <div class="meal-item"><div class="meal-name">Гречневая с пармезаном<span class="meal-price">260₽</span></div></div>
+            <div class="meal-item"><div class="meal-name">Рисовая каша с манго<span class="meal-price">260₽</span></div><div class="meal-description">На кокосовом молоке</div></div>
+            <div class="meal-item"><div class="meal-name">Сырники со сметаной<span class="meal-price">270₽</span></div><div class="meal-description">Варенье/сгущенка/соленая карамель +80₽</div></div>
+            <div class="meal-item"><div class="meal-name">Сырники<span class="meal-price">300₽</span></div><div class="meal-description">с манговым курдом и крем-сыром</div></div>
+            <div class="meal-item"><div class="meal-name">Творожная запеканка<span class="meal-price">370₽</span></div><div class="meal-description">с мороженым и ягодным соусом</div></div>
+            <div class="meal-item"><div class="meal-name">Блины<span class="meal-price">300₽</span></div><div class="meal-description">С курицей и грибами</div></div>
+            <div class="meal-item"><div class="meal-name">Блины<span class="meal-price">350₽</span></div><div class="meal-description">С форелью и авокадо-кремом</div></div>
+            <div class="meal-item"><div class="meal-name">Блины<span class="meal-price">250₽</span></div><div class="meal-description">С креветками в свит чили</div></div>
+            <div class="meal-item"><div class="meal-name">Блины<span class="meal-price">250₽</span></div><div class="meal-description">С форелью слабосоленой</div></div>
+            <div class="meal-item"><div class="meal-name">Блины<span class="meal-price">250₽</span></div><div class="meal-description">Со сметаной и вареньем: малина, черника, смородина, ягодный соус</div></div>
+            <div class="meal-item"><div class="meal-name">Самый сытный завтрак<span class="meal-price">450₽</span></div><div class="meal-description">Австрийская колбаска, бекон, картофель беби, яйцо всмятку, маринованные огурцы, соус трюфельный ранч, чиабатта, салат</div></div>
+            <div class="meal-item"><div class="meal-name">Английский завтрак<span class="meal-price">330₽</span></div><div class="meal-description">Микс салата, овощи, глазунья, колбаска австрийская, фасоль в томатном соусе, чиабатта</div></div>
+            <div class="meal-item"><div class="meal-name">Завтрак конструктор<span class="meal-price">220₽</span></div><div class="meal-description">Скрембл, омлет, пашот или глазунья + микс салата и чиабатта</div></div>
+            <div class="meal-item"><div class="meal-name">Омлет четыре сыра<span class="meal-price">300₽</span></div><div class="meal-description">Чеддер, моцарелла, крем-сыр, пармезан, микс салата, овощи, чиабатта</div></div>
+            <div class="meal-item"><div class="meal-name">Бенедикт с форелью<span class="meal-price">490₽</span></div><div class="meal-description">Бриошь, крем-сыр, форель, авокадо, яйцо пашот, микс салата, сырный соус</div></div>
+            <div class="meal-item"><div class="meal-name">Бенедикт с креветками<span class="meal-price">490₽</span></div><div class="meal-description">Бриошь, крем-сыр, креветки, авокадо, яйцо пашот, микс салата, сырный соус</div></div>
+            <div class="meal-item">
+              <div class="meal-name">Завтрак конструктор<span class="meal-price">220₽</span></div>
+              <div class="meal-description" style="color:#ff7700;font-weight:500">
+                Скрембл, пушистый омлет, пашот или глазунья из двух яиц. Подаем с миксом салата и чиабаттой.
+              </div>
+              <div class="meal-description">
+                <strong>Добавки:</strong><br>
+                Курица/Бекон — 120₽<br>
+                Авокадо — 120₽<br>
+                Креветки в свит чили — 150₽<br>
+                Форель слабосоленая — 250₽<br>
+                Колбаска австрийская — 120₽<br>
+                Чиабатта — 60₽<br>
+                Сливочное масло — 70₽<br>
+                Яйцо — 60₽<br>
+                Фасоль в томатном соусе — 80₽
+              </div>
+            </div>
+            <div class="meal-item">
+              <div class="meal-name">Напитки к завтраку<span class="meal-price">150₽</span></div>
+              <div class="meal-description">
+                Фильтр-кофе, Американо, Капучино, Латте, Флэт уайт, Какао, Чай
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Творог и сырники -->
+        <div class="meal-category" id="meals-curd">
+          <div class="meal-category-title">🧀 Творог и сырники</div>
+          <div class="meal-items">
+            <div class="meal-item"><div class="meal-name">Творожная запеканка<span class="meal-price">370₽</span></div><div class="meal-description">с мороженым и ягодным соусом</div></div>
+            <div class="meal-item"><div class="meal-name">Сырники со сметаной<span class="meal-price">270₽</span></div><div class="meal-description">Варенье/сгущенка/соленая карамель +80₽</div></div>
+            <div class="meal-item"><div class="meal-name">Сырники<span class="meal-price">300₽</span></div><div class="meal-description">с манговым курдом и крем-сыром</div></div>
+          </div>
+        </div>
+
+        <!-- Блины -->
+        <div class="meal-category" id="meals-pancakes">
+          <div class="meal-category-title">🥞 Блины</div>
+          <div class="meal-items">
+            <div class="meal-item"><div class="meal-name">Блины<span class="meal-price">300₽</span></div><div class="meal-description">С курицей и грибами</div></div>
+            <div class="meal-item"><div class="meal-name">Блины<span class="meal-price">350₽</span></div><div class="meal-description">С форелью и авокадо-кремом</div></div>
+            <div class="meal-item"><div class="meal-name">Блины<span class="meal-price">250₽</span></div><div class="meal-description">С креветками в свит чили</div></div>
+            <div class="meal-item"><div class="meal-name">Блины<span class="meal-price">250₽</span></div><div class="meal-description">С форелью слабосоленой</div></div>
+            <div class="meal-item"><div class="meal-name">Блины<span class="meal-price">250₽</span></div><div class="meal-description">Со сметаной и вареньем: малина, черника, смородина, ягодный соус</div></div>
+          </div>
+        </div>
+
+        <!-- Тосты и хлеб -->
+        <div class="meal-category" id="meals-toasts">
+          <div class="meal-category-title">🍞 Тосты и хлеб</div>
+          <div class="meal-items">
+            <div class="meal-item"><div class="meal-name">Бенедикт с форелью<span class="meal-price">490₽</span></div><div class="meal-description">Бриошь, крем-сыр, форель, авокадо, яйцо пашот, микс салата, сырный соус</div></div>
+            <div class="meal-item"><div class="meal-name">Бенедикт с креветками<span class="meal-price">490₽</span></div><div class="meal-description">Бриошь, крем-сыр, креветки, авокадо, яйцо пашот, микс салата, сырный соус</div></div>
+            <div class="meal-item"><div class="meal-name">🌭 Хот-дог «Нью-Йорк»<span class="meal-price">270₽</span></div><div class="meal-description">Соус чипотле, колбаска австрийская, лук фри, маринованные огурцы, лук карамельный</div></div>
+            <div class="meal-item"><div class="meal-name">🍞 Тост с креветками<span class="meal-price">350₽</span></div><div class="meal-description">Чиабатта, крем-сыр, микс салата, яйцо пашот, соус голландский, креветки</div></div>
+            <div class="meal-item"><div class="meal-name">🍞 Тост с форелью<span class="meal-price">430₽</span></div><div class="meal-description">Чиабатта, авокадо-крем, слабосоленая форель, свежий огурец</div></div>
+            <div class="meal-item"><div class="meal-name">🥪 Клаб-сэндвич<span class="meal-price">370₽</span></div><div class="meal-description">Чиабатта, чеддер, микс салата, курица BBQ, вяленые томаты, сырный чили</div></div>
+          </div>
+        </div>
+
+        <!-- Салаты -->
+        <div class="meal-category" id="meals-salads">
+          <div class="meal-category-title">🥗 Салаты</div>
+          <div class="meal-items">
+            <div class="meal-item"><div class="meal-name">Цезарь с курицей<span class="meal-price">350₽</span></div><div class="meal-description">Микс салата, жареная курица, сухарики, томаты черри, яйцо, пармезан, соус цезарь</div></div>
+            <div class="meal-item"><div class="meal-name">Цезарь с креветками<span class="meal-price">390₽</span></div><div class="meal-description">Микс салата, креветки, сухарики, томаты черри, яйцо, пармезан, соус цезарь</div></div>
+          </div>
+        </div>
+
+        <!-- Паста -->
+        <div class="meal-category" id="meals-pasta">
+          <div class="meal-category-title">🍝 Паста</div>
+          <div class="meal-items">
+            <div class="meal-item"><div class="meal-name">Фетучини с креветками<span class="meal-price">410₽</span></div><div class="meal-description">Фетучини, креветки, шпинат, чеснок, сливочный соус, пармезан</div></div>
+            <div class="meal-item"><div class="meal-name">Фетучини с курицей<span class="meal-price">370₽</span></div><div class="meal-description">Курица, грибы, сливочный соус, пармезан</div></div>
+            <div class="meal-item"><div class="meal-name">Фетучини с беконом<span class="meal-price">410₽</span></div><div class="meal-description">Бекон, грибы, томаты черри, песто, сливочный соус, яйцо пашот, пармезан</div></div>
+            <div class="meal-item"><div class="meal-name">Томатная паста<span class="meal-price">370₽</span></div><div class="meal-description">Томатный соус, томаты черри, печёный перец, страчателла, песто</div></div>
+          </div>
+        </div>
+
+        <!-- Пицца -->
+        <div class="meal-category" id="meals-pizza">
+          <div class="meal-category-title">🍕 Пицца</div>
+          <div class="meal-items">
+            <div class="meal-item"><div class="meal-name">Маргарита 360 г<span class="meal-price">439₽</span></div><div class="meal-description">Римское тесто, моцарелла, томаты черри, песто, томатный соус, пармезан</div></div>
+            <div class="meal-item"><div class="meal-name">Мясная 380 г<span class="meal-price">439₽</span></div><div class="meal-description">Римское тесто, моцарелла, томаты черри, пепперони, курица, бекон</div></div>
+            <div class="meal-item"><div class="meal-name">Пепперони 360 г<span class="meal-price">339₽</span></div><div class="meal-description">Римское тесто, моцарелла, томатный соус, пепперони</div></div>
+            <div class="meal-item"><div class="meal-name">Сырная 350 г<span class="meal-price">469₽</span></div><div class="meal-description">Римское тесто, белый соус, моцарелла, чеддер, пармезан, дор блю</div></div>
+          </div>
+        </div>
+
+        <!-- Супы -->
+        <div class="meal-category" id="meals-soups">
+          <div class="meal-category-title">🍲 Супы</div>
+          <div class="meal-items">
+            <div class="meal-item"><div class="meal-name">Сырный крем-суп<span class="meal-price">370₽</span></div><div class="meal-description">Овощной бульон, сливочный сыр, сухари</div></div>
+            <div class="meal-item"><div class="meal-name">Тыквенный крем-суп<span class="meal-price">330₽</span></div><div class="meal-description">Тыква, лук, кокосовое молоко</div></div>
+            <div class="meal-item"><div class="meal-name">Грибной крем-суп<span class="meal-price">350₽</span></div><div class="meal-description">Шампиньоны, лук, сливки, сухари</div></div>
+          </div>
+        </div>
                                 <!-- Desserts -->
 
                 <!-- Desserts -->
-                <div class="meal-category">
-                    <div class="meal-category" id="meals-desserts">… 🍰 Десерты …</div>
-                    <div class="meal-items">
+        <div class="meal-category" id="meals-desserts">
+          <div class="meal-category-title">🍰 Десерты</div>
+          <div class="meal-items">
                         <div class="meal-item">
                             <div class="meal-name">🍰 Три молока<span class="meal-price">350₽</span></div>
                             <div class="meal-description">Фирменный десерт и фаворит среди наших гостей. Воздушный классический бисквит, пропитанный тремя видами молока.</div>
@@ -1568,12 +700,12 @@ html{ scroll-behavior: smooth; }
                 </div> <!-- نهاية .meal-items -->
             </div> <!-- نهاية .meal-category -->
         </div> <!-- نهاية .meals-grid -->
-    </div> <!-- نهاية .container -->
+
 </section> <!-- نهاية section#meals -->
 
 
     <!-- Footer -->
-    <footer>
+      <footer>
         <div class="footer-overlay"></div>
         <div class="container">
             <div class="footer-content">
@@ -1618,9 +750,10 @@ html{ scroll-behavior: smooth; }
         </div>
     </footer>
 
-        <button id="toTop" aria-label="Наверх" title="Наверх">
+  <!-- Кнопка «наверх» -->
+      <button id="toTop" aria-label="Наверх" title="Наверх">
   <i class="fa-solid fa-arrow-up"></i>
-</button>
+      </button>
 
 <!-- سكربت الوظائف الأساسية (الأقسام + البحث + زر لأعلى) -->
 <script>
